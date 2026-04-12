@@ -126,8 +126,8 @@
                           `*Correo:* ${correo} %0A` +
                           `*Mensaje:* ${mensaje}`;
 
-            // 4. Crear el enlace y abrirlo
-            const url = `https://wa.me{telefono}?text=${texto}`;
+            // 4. Crear el enlace y abrir//
+           const url = "https://wa.me" + telefono + "?text=" + texto;
             window.open(url, '_blank');
         });
     </script>
