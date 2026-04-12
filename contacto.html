@@ -4,7 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto | Florería Alberto</title>
-    <link rel="stylesheet" href="contacto.css">
+    <!-- He cambiado esto a style.css para mantener consistencia con el diseño premium -->
+    <link rel="stylesheet" href="contacto.css"> 
+    <style>
+        /* Botón flotante de WhatsApp */
+        .btn-flotante-wa {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            text-decoration: none;
+            z-index: 3000;
+            transition: 0.3s;
+        }
+        .btn-flotante-wa:hover {
+            transform: scale(1.1);
+            background-color: #128c7e;
+        }
+    </style>
 </head>
 <body>
 
@@ -57,24 +83,54 @@
 
         <!-- COLUMNA DEL FORMULARIO -->
         <div class="formulario-container">
-            <form action="#">
+            <form id="formContacto">
                 <div class="campo">
                     <label>Nombre completo</label>
-                    <input type="text" placeholder="Ej. Juan Pérez">
+                    <input type="text" id="nombre" placeholder="Ej. Juan Pérez" required>
                 </div>
                 <div class="campo">
                     <label>Correo electrónico</label>
-                    <input type="email" placeholder="juanperez734@ejemplo.com">
+                    <input type="email" id="correo" placeholder="juanperez734@ejemplo.com" required>
                 </div>
                 <div class="campo">
                     <label>Mensaje</label>
-                    <textarea placeholder="¿En qué podemos ayudarte?"></textarea>
+                    <textarea id="mensaje" placeholder="¿En qué podemos ayudarte?" required></textarea>
                 </div>
-                <button type="submit" class="btn-enviar">Enviar mensaje</button>
+                <button type="button" id="btnWhatsapp" class="btn-enviar">Enviar por WhatsApp</button>
             </form>
         </div>
-
     </main>
+
+    <!-- BOTÓN FLOTANTE (Opcional, pero recomendado) -->
+    <a href="https://wa.me" class="btn-flotante-wa" target="_blank">
+        📲
+    </a>
+
+    <!-- SCRIPT PARA ENVIAR DATOS A WHATSAPP -->
+    <script>
+        document.getElementById('btnWhatsapp').addEventListener('click', function() {
+            // 1. Obtenemos los valores de los campos por su ID
+            const nombre = document.getElementById('nombre').value;
+            const correo = document.getElementById('correo').value;
+            const mensaje = document.getElementById('mensaje').value;
+            const telefono = "525535652131"; // Tu número con código de país 52
+
+            // 2. Validación simple
+            if (nombre === "" || mensaje === "") {
+                alert("Por favor, ingresa al menos tu nombre y el mensaje.");
+                return;
+            }
+
+            // 3. Construcción del mensaje (con codificación para URL)
+            const texto = `Hola Florería Alberto, mi nombre es *${nombre}*. %0A` +
+                          `*Correo:* ${correo} %0A` +
+                          `*Mensaje:* ${mensaje}`;
+
+            // 4. Crear el enlace y abrirlo
+            const url = `https://wa.me{telefono}?text=${texto}`;
+            window.open(url, '_blank');
+        });
+    </script>
 
 </body>
 </html>
