@@ -1,0 +1,166 @@
+/* ==========================================
+   ESTILO COMPLETO: PÁGINA DE CONTACTO
+   ========================================== */
+
+/* 1. CORRECCIÓN DE LA BARRA (LO QUE SEÑALASTE) */
+.barra-superior {
+    width: 100%;
+    height: 80px;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2000;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.contenedor-nav {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu {
+    display: flex;
+    list-style: none; /* QUITA LOS PUNTOS NEGROS */
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.menu a {
+    text-decoration: none; /* QUITA EL SUBRAYADO AZUL */
+    color: #333;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.menu a.active, .menu a:hover {
+    color: #d63384; /* ROSA DE TU MARCA */
+}
+
+/* 2. ENCABEZADO DE CONTACTO */
+.contacto-header {
+    margin-top: 120px;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.contacto-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    color: #1a1a1a;
+    margin-bottom: 10px;
+}
+
+.contacto-header p {
+    color: #777;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* 3. CUERPO DE CONTACTO (DOS COLUMNAS) */
+.contenedor-contacto {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Columna info y Columna formulario */
+    gap: 80px;
+    width: 90%;
+    max-width: 1100px;
+    margin: 50px auto 100px;
+}
+
+/* INFO LATERAL (VISÍTANOS, ESCRÍBENOS...) */
+.info-lateral .bloque-contacto {
+    margin-bottom: 30px;
+}
+
+.info-lateral span {
+    color: #d63384;
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.info-lateral p {
+    font-size: 1rem;
+    color: #333;
+}
+
+.links-sociales a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 700;
+    margin-right: 15px;
+}
+
+/* 4. DISEÑO DEL FORMULARIO */
+.formulario-container .campo {
+    margin-bottom: 20px;
+}
+
+.formulario-container label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.formulario-container input, 
+.formulario-container textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #eeeeee;
+    border-radius: 4px;
+    background-color: #fafafa;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+.formulario-container input:focus, 
+.formulario-container textarea:focus {
+    outline: none;
+    border-color: #d63384;
+    background-color: #fff;
+}
+
+.formulario-container textarea {
+    height: 150px;
+    resize: none;
+}
+
+/* BOTÓN NEGRO COMO EN TU CAPTURA */
+.btn-enviar {
+    width: 100%;
+    background-color: #1a1a1a;
+    color: white;
+    padding: 18px;
+    border: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: 0.4s;
+    margin-top: 10px;
+}
+
+.btn-enviar:hover {
+    background-color: #d63384;
+    transform: translateY(-2px);
+}
+
+/* RESPONSIVO MÓVIL */
+@media (max-width: 768px) {
+    .contenedor-contacto {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    .contacto-header h1 { font-size: 2.5rem; }
+}
