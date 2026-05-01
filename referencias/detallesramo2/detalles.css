@@ -1,0 +1,155 @@
+:root {
+    --gold: #c5a880;
+    --dark: #1a1a1a;
+    --grey: #f4f4f4;
+    --text: #4a4a4a;
+    --serif: 'Cormorant Garamond', serif;
+    --sans: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: #fdfdfd;
+    font-family: var(--sans);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: var(--dark);
+}
+
+.product-wrapper {
+    width: 100%;
+    max-width: 1100px;
+    padding: 20px;
+}
+
+.main-card {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    background: #fff;
+    box-shadow: 0 40px 100px rgba(0,0,0,0.05);
+    border-radius: 4px; /* Bordes rectos son más "lujosos" */
+    overflow: hidden;
+}
+
+/* Lado de la Foto */
+.photo-side {
+    position: relative;
+    height: 600px;
+    overflow: hidden;
+}
+
+.product-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.main-card:hover .product-img {
+    transform: scale(1.08);
+}
+
+.overlay-tag {
+    position: absolute;
+    bottom: 30px;
+    right: 0;
+    background: var(--dark);
+    color: #fff;
+    padding: 10px 25px;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+/* Lado del Contenido */
+.info-side {
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.breadcrumb {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #aaa;
+    margin-bottom: 20px;
+}
+
+.title {
+    font-family: var(--serif);
+    font-size: 4rem;
+    font-weight: 600;
+    line-height: 0.9;
+    margin-bottom: 25px;
+}
+
+.title span {
+    display: block;
+    color: var(--gold);
+    font-style: italic;
+    margin-left: 40px;
+}
+
+.price-container {
+    margin-bottom: 30px;
+}
+
+.price { font-size: 2.5rem; font-weight: 300; }
+.currency { vertical-align: super; font-size: 1.2rem; margin-right: 5px; }
+.tax { font-size: 12px; color: #aaa; text-transform: uppercase; margin-left: 10px; }
+
+.description {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: var(--text);
+    margin-bottom: 30px;
+    border-left: 1px solid var(--gold);
+    padding-left: 20px;
+}
+
+.specs {
+    margin-bottom: 40px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Botón Minimalista */
+.main-button {
+    background: var(--dark);
+    color: white;
+    border: none;
+    padding: 20px 40px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-family: var(--sans);
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.main-button:hover {
+    background: var(--gold);
+}
+
+.shipping-notice {
+    font-size: 11px;
+    margin-top: 15px;
+    color: #888;
+    text-align: center;
+}
+
+/* Mobile */
+@media (max-width: 850px) {
+    .main-card { grid-template-columns: 1fr; }
+    .photo-side { height: 400px; }
+    .info-side { padding: 40px 20px; }
+    .title { font-size: 3rem; }
+}

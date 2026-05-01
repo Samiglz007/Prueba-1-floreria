@@ -3,33 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalle - Florería Alberto</title>
+    <title>Boutique Flora - Elegancia Real</title>
+    <!-- Fuentes elegantes -->
+    <link href="https://googleapis.com" rel="stylesheet">
     <link rel="stylesheet" href="detalles.css">
 </head>
 <body>
-    <div class="container">
-        <a href="/index.html" class="btn-back">← Volver al Catálogo</a>
-        
-        <section class="product-detail">
-            <div class="image-gallery">
-                <img src="/ramos/ramo1.jpeg" id="main-img" alt="Ramo">
-            </div>
 
-            <div class="info-panel">
-                <span class="category">Arreglos Premium</span>
-                <h1>Ramo Elegancia Real</h1>
-                <p class="price">$550.00</p>
+    <main class="container">
+        <article class="card">
+            <!-- Sección Imagen -->
+            <section class="card-image">
+                <div class="badge">Edición Especial</div>
+                <img src="/Ramos/ramo1.jpeg" alt="Ramo Elegancia Real Hello Kitty" id="main-img">
+            </section>
+
+            <!-- Sección Contenido -->
+            <section class="card-content">
+                <header>
+                    <span class="category">Arreglos Premium</span>
+                    <h1>Ramo Elegancia Real</h1>
+                </header>
+
                 <div class="description">
-                    <p>Símbolo máximo de amor y elegancia. Este arreglo incluye rosas seleccionadas a mano, follaje fino y un acabado artesanal único.</p>
+                    <p>Una fusión magistral de ternura y sofisticación. Rosas premium seleccionadas a mano, acompañadas de follaje exótico y el detalle icónico de Hello Kitty.</p>
                 </div>
-                
-                <div class="actions">
-                    <button class="btn-buy" onclick="agregarAlCarrito()">Agregar al Carrito</button>
-                    <p class="shipping-info">🚚 Envío disponible para hoy mismo</p>
+
+                <div class="price-tag">
+                    <span class="symbol">$</span>
+                    <span class="value">550</span>
+                    <span class="decimal">.00</span>
                 </div>
-            </div>
-        </section>
-    </div>
+
+                <div class="features">
+                    <div class="feature-item">
+                        <span class="icon">✨</span>
+                        <span>Acabado Artesanal</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="icon">🚚</span>
+                        <span>Envío Express Hoy</span>
+                    </div>
+                </div>
+
+                <button class="btn-buy" id="btn-cart">
+                    <span class="btn-text">Agregar al Carrito</span>
+                    <div class="btn-icon">🛒</div>
+                </button>
+            </section>
+        </article>
+    </main>
 
     <script src="detalles.js"></script>
 </body>
