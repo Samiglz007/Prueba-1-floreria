@@ -1,26 +1,17 @@
-const card = document.querySelector('.card-3d');
-const container = document.querySelector('.scene');
+const themeToggle = document.getElementById('theme-toggle');
+const body = document.body;
 
-// Movimiento de la tarjeta con el mouse
-container.addEventListener('mousemove', (e) => {
-    let xAxis = (window.innerWidth / 2 - e.pageX) / 20;
-    let yAxis = (window.innerHeight / 2 - e.pageY) / 20;
-    card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
-});
+// Cargar tema guardado
+if (localStorage.getItem('theme') === 'dark') {
+    body.setAttribute('data-theme', 'dark');
+}
 
-// Animar entrada suave
-container.addEventListener('mouseenter', (e) => {
-    card.style.transition = 'none';
-});
-
-// Volver a la posición original
-container.addEventListener('mouseleave', (e) => {
-    card.style.transition = 'all 0.5s ease';
-    card.style.transform = `rotateY(0deg) rotateX(0deg)`;
-});
-
-// Feedback del botón
-document.getElementById('buy-btn').addEventListener('click', function() {
-    this.innerText = "❤️ ¡Añadido!";
-    this.style.borderColor = "#d4af37";
+themeToggle.addEventListener('click', () => {
+    if (body.hasAttribute('data-theme')) {
+        body.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'light');
+    } else {
+        body.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+    }
 });
