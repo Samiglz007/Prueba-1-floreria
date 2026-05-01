@@ -1,0 +1,152 @@
+:root {
+    --gold-linear: linear-gradient(135deg, #c5a367 0%, #ecd299 50%, #c5a367 100%);
+    --bg-dark: #050505;
+    --text-white: #f0f0f0;
+    --font-luxury: 'Marcellus', serif;
+    --font-clean: 'Tenor Sans', sans-serif;
+}
+
+body, html {
+    margin: 0; padding: 0;
+    height: 100%; width: 100%;
+    background: var(--bg-dark);
+    font-family: var(--font-clean);
+    color: var(--text-white);
+    overflow: hidden;
+}
+
+/* Gradiente de fondo animado */
+.mesh-gradient {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: radial-gradient(at 0% 0%, #1a120b 0%, transparent 50%),
+                radial-gradient(at 100% 100%, #2c1e12 0%, transparent 50%),
+                radial-gradient(at 50% 50%, #000 0%, #000 100%);
+    z-index: -1;
+    animation: pulse 10s ease infinite alternate;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.1); }
+}
+
+.viewport {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.master-piece {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    width: 85vw;
+    height: 80vh;
+    gap: 50px;
+    align-items: center;
+}
+
+/* Orbe de imagen con refracción */
+.visual-stage {
+    position: relative;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-orb {
+    width: 100%;
+    height: 90%;
+    border-radius: 300px 300px 100px 100px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 0 100px rgba(197, 163, 103, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.image-orb img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.image-orb:hover img { transform: scale(1.1); }
+
+/* Detalles de Texto */
+.grand-title {
+    font-family: var(--font-luxury);
+    font-size: 5.5rem;
+    line-height: 0.85;
+    margin: 20px 0;
+    letter-spacing: -2px;
+}
+
+.grand-title i {
+    font-weight: 100;
+    color: #ecd299;
+}
+
+.divider {
+    width: 60px;
+    height: 1px;
+    background: var(--gold-linear);
+    margin-bottom: 30px;
+}
+
+.manifesto {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #999;
+    max-width: 400px;
+}
+
+/* Botón de Hyper-Lujo */
+.hyper-btn {
+    position: relative;
+    background: transparent;
+    border: 1px solid #c5a367;
+    color: #fff;
+    padding: 25px 60px;
+    font-family: var(--font-luxury);
+    letter-spacing: 3px;
+    cursor: pointer;
+    overflow: hidden;
+    margin-top: 40px;
+    transition: 0.5s;
+}
+
+.btn-glow {
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(236, 210, 153, 0.2), transparent);
+    transition: 0.5s;
+}
+
+.hyper-btn:hover .btn-glow { left: 100%; }
+.hyper-btn:hover {
+    box-shadow: 0 0 30px rgba(197, 163, 103, 0.3);
+    background: rgba(197, 163, 103, 0.05);
+}
+
+.price-tag { margin-top: 40px; }
+.amount { font-size: 3.5rem; font-family: var(--font-luxury); }
+.currency { font-size: 1.5rem; vertical-align: super; }
+
+/* Entrada de animación */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.data-stage > * {
+    animation: fadeInUp 1s ease forwards;
+    opacity: 0;
+}
+
+.data-stage > *:nth-child(1) { animation-delay: 0.2s; }
+.data-stage > *:nth-child(2) { animation-delay: 0.4s; }
+.data-stage > *:nth-child(3) { animation-delay: 0.6s; }
