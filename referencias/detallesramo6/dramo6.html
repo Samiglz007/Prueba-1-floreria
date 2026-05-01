@@ -3,36 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Moderno</title>
+    <title>Elegancia Real | Artesanía Floral</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://googleapis.com" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <aside class="sidebar">
-            <h2>Panel</h2>
-            <nav>
-                <a href="#" class="active">Inicio</a>
-                <a href="#">Analíticas</a>
-                <a href="#">Ajustes</a>
-            </nav>
-            <button id="theme-toggle">Cambiar Tema</button>
-        </aside>
-        <main class="main-content">
-            <header>
-                <h1>Bienvenido de nuevo</h1>
-            </header>
-            <section class="cards">
-                <div class="card glass">
-                    <h3>Ventas</h3>
-                    <p>$12,400</p>
+    <main class="product-card">
+        <div class="image-section">
+            <span class="badge">Edición Limitada</span>
+            <img src="tu-imagen-de-flores.jpg" alt="Ramo Elegancia Real" id="main-flower">
+        </div>
+        
+        <div class="info-section">
+            <h4 class="category">Artesanía Floral</h4>
+            <h1>Elegancia <span>Real</span></h1>
+            <p class="description">
+                Un diálogo entre la naturaleza y la cultura pop. 
+                Rosas de corte profundo fusionadas con la esencia de Sanrio.
+            </p>
+            
+            <div class="pricing">
+                <div class="price-box">
+                    <span class="label">Inversión</span>
+                    <span class="amount">$550.00</span>
                 </div>
-                <div class="card glass">
-                    <h3>Usuarios</h3>
-                    <p>1,250</p>
-                </div>
-            </section>
-        </main>
-    </div>
+                <button class="buy-btn" id="buy-action">Adquirir pieza</button>
+            </div>
+            
+            <p class="shipping-info">
+                📍 Ciudad de México • <strong>Envío prioritario hoy</strong>
+            </p>
+        </div>
+    </main>
     <script src="script.js"></script>
 </body>
 </html>

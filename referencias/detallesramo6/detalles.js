@@ -1,17 +1,22 @@
-const themeToggle = document.getElementById('theme-toggle');
-const body = document.body;
+document.addEventListener('DOMContentLoaded', () => {
+    const btn = document.getElementById('buy-action');
+    const image = document.getElementById('main-flower');
 
-// Cargar tema guardado
-if (localStorage.getItem('theme') === 'dark') {
-    body.setAttribute('data-theme', 'dark');
-}
+    // Efecto de hover suave en la imagen
+    image.addEventListener('mouseenter', () => {
+        image.style.transform = 'scale(1.05)';
+    });
 
-themeToggle.addEventListener('click', () => {
-    if (body.hasAttribute('data-theme')) {
-        body.removeAttribute('data-theme');
-        localStorage.setItem('theme', 'light');
-    } else {
-        body.setAttribute('data-theme', 'dark');
-        localStorage.setItem('theme', 'dark');
-    }
+    image.addEventListener('mouseleave', () => {
+        image.style.transform = 'scale(1)';
+    });
+
+    // Acción del botón
+    btn.addEventListener('click', () => {
+        btn.innerText = "Agregando...";
+        setTimeout(() => {
+            alert("¡Pieza agregada a tu carrito floral! 🌸");
+            btn.innerText = "Adquirir pieza";
+        }, 800);
+    });
 });

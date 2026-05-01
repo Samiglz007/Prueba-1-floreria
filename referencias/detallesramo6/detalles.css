@@ -1,42 +1,122 @@
 :root {
-    --bg-color: #f0f2f5;
-    --card-bg: rgba(255, 255, 255, 0.2);
-    --text-color: #333;
-}
-
-[data-theme="dark"] {
-    --bg-color: #1a1a2e;
-    --card-bg: rgba(255, 255, 255, 0.05);
-    --text-color: #fff;
+    --primary-pink: #ffb7c5;
+    --dark-pink: #e68fa0;
+    --soft-bg: #fff5f6;
+    --text-main: #333;
+    --white: #ffffff;
 }
 
 body {
-    background: var(--bg-color);
-    color: var(--text-color);
-    font-family: 'Segoe UI', sans-serif;
-    transition: 0.3s;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--soft-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
-.container { display: flex; min-height: 100vh; }
-
-.sidebar {
-    width: 250px;
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.05);
-}
-
-.glass {
-    background: var(--card-bg);
-    backdrop-filter: blur(10px); /* Efecto cristal */
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 15px;
-    padding: 20px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-}
-
-.cards {
+.product-card {
+    background: var(--white);
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
+    grid-template-columns: 1fr 1.2fr;
+    max-width: 950px;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+}
+
+.image-section {
+    position: relative;
     padding: 20px;
+}
+
+.image-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    transition: transform 0.5s ease;
+}
+
+.badge {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    background: #000;
+    color: #fff;
+    padding: 8px 15px;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+}
+
+.info-section {
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    margin: 10px 0;
+}
+
+h1 span {
+    color: var(--dark-pink);
+    font-style: italic;
+}
+
+.category {
+    color: var(--dark-pink);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.8rem;
+    margin: 0;
+}
+
+.description {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+.pricing {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    border-top: 1px solid #eee;
+    padding-top: 30px;
+}
+
+.amount {
+    display: block;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.buy-btn {
+    background: transparent;
+    border: 2px solid #000;
+    padding: 15px 40px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.buy-btn:hover {
+    background: #000;
+    color: #fff;
+}
+
+/* Responsivo para móviles */
+@media (max-width: 768px) {
+    .product-card { grid-template-columns: 1fr; margin: 20px; }
+    .info-section { padding: 30px; }
+    h1 { font-size: 2.5rem; }
 }
