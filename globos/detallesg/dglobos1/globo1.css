@@ -1,0 +1,82 @@
+:root {
+    --pink: #d63384;
+    --dark: #2d3436;
+    --gray: #636e72;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    background-color: #fff;
+    color: var(--dark);
+}
+
+header {
+    padding: 20px 5%;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #eee;
+}
+
+.logo { font-weight: bold; color: var(--pink); font-size: 1.5rem; }
+header nav a { text-decoration: none; color: var(--pink); font-weight: 500; }
+
+.container {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.product-view {
+    display: flex;
+    gap: 50px;
+    flex-wrap: wrap; /* Para móviles */
+}
+
+.product-image { flex: 1; min-width: 300px; }
+.product-image img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.product-details { flex: 1; min-width: 300px; }
+
+.category { color: var(--pink); font-size: 0.9rem; text-transform: uppercase; font-weight: bold; }
+h1 { font-size: 2.5rem; margin: 10px 0; }
+.price { font-size: 1.8rem; font-weight: bold; color: #2ecc71; margin-bottom: 20px; }
+
+.description h3, .specs h3 {
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-top: 30px;
+    font-size: 1.1rem;
+}
+
+.specs ul { padding-left: 20px; color: var(--gray); }
+.specs li { margin-bottom: 8px; }
+
+.actions { margin-top: 40px; }
+
+.btn-whatsapp {
+    display: inline-block;
+    background-color: #25D366;
+    color: white;
+    text-decoration: none;
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: 0.3s;
+    text-align: center;
+}
+
+.btn-whatsapp:hover {
+    background-color: #128C7E;
+    transform: scale(1.05);
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .product-view { flex-direction: column; }
+    h1 { font-size: 1.8rem; }
+}

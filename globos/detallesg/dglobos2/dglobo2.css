@@ -1,0 +1,131 @@
+:root {
+    --primary: #ff6bad;
+    --bg-color: #fdf2f7;
+    --text: #2d3436;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-color);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.main-container {
+    width: 90%;
+    max-width: 1000px;
+    padding: 20px 0;
+}
+
+.btn-back {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--primary);
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.product-card {
+    background: white;
+    border-radius: 30px;
+    overflow: hidden;
+    display: flex;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+/* Lado de la imagen */
+.image-section {
+    flex: 1;
+    background: #fff;
+    padding: 20px;
+}
+
+.main-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+/* Lado de la información */
+.info-section {
+    flex: 1;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.badge-cat {
+    background: #fff0f6;
+    color: var(--primary);
+    padding: 5px 15px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: bold;
+    align-self: flex-start;
+}
+
+h1 { font-size: 2rem; margin: 15px 0; color: var(--text); }
+
+.price {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin: 10px 0;
+}
+
+.price span { font-size: 1rem; color: #aaa; }
+
+.short-desc { color: #636e72; line-height: 1.6; margin-bottom: 30px; }
+
+/* Grid de especificaciones */
+.spec-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 40px;
+}
+
+.spec-item {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.spec-item strong { display: block; font-size: 13px; color: #b2bec3; }
+.spec-item span { font-size: 14px; font-weight: bold; color: var(--text); }
+
+/* Caja de compra */
+.buy-box {
+    background: #fdf2f7;
+    padding: 25px;
+    border-radius: 20px;
+    border: 1px dashed var(--primary);
+}
+
+.buy-box h3 { margin: 0 0 10px 0; font-size: 16px; }
+.buy-box p { font-size: 14px; color: #636e72; margin-bottom: 20px; }
+
+.whatsapp-btn {
+    display: block;
+    background: #25D366;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    padding: 15px;
+    border-radius: 15px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.whatsapp-btn:hover { background: #1ebe57; transform: scale(1.02); }
+
+/* Móvil */
+@media (max-width: 800px) {
+    .product-card { flex-direction: column; }
+    .info-section { padding: 30px; }
+}
