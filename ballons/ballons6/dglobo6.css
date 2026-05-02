@@ -1,0 +1,151 @@
+:root {
+    --gold: #c5a059;
+    --dark: #121212;
+    --white: #ffffff;
+}
+
+body {
+    margin: 0;
+    background-color: var(--dark);
+    color: var(--white);
+    font-family: 'Montserrat', sans-serif;
+    overflow: hidden;
+}
+
+.viewport {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* Texto gigante al fondo */
+.bg-text {
+    position: absolute;
+    font-family: 'Oswald', sans-serif;
+    font-size: 25vw;
+    color: rgba(255, 255, 255, 0.03);
+    z-index: 0;
+    pointer-events: none;
+    line-height: 1;
+}
+
+.product-layout {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    z-index: 1;
+    width: 90%;
+    max-width: 1200px;
+}
+
+/* Imagen con efecto de profundidad */
+.image-wrapper {
+    flex: 1;
+    position: relative;
+    padding-right: 50px;
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 40px 40px 0px var(--gold);
+}
+
+.floating-card {
+    position: absolute;
+    bottom: -30px;
+    right: 20px;
+    background: var(--white);
+    color: var(--dark);
+    padding: 30px;
+    min-width: 120px;
+    text-align: center;
+}
+
+.floating-card span { font-size: 12px; text-transform: uppercase; color: #888; }
+.floating-card p { font-size: 28px; font-weight: 800; margin: 5px 0 0 0; }
+
+/* Contenido */
+.content-box {
+    flex: 1;
+    padding-left: 50px;
+}
+
+.category {
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 14px;
+}
+
+h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 80px;
+    line-height: 0.9;
+    margin: 20px 0;
+    text-transform: uppercase;
+}
+
+h1 span { color: var(--gold); }
+
+.description p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #ccc;
+    max-width: 400px;
+    margin-bottom: 40px;
+}
+
+/* Especificaciones minimalistas */
+.specs-horizontal {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 50px;
+}
+
+.spec strong { display: block; font-size: 20px; color: var(--gold); }
+.spec span { font-size: 12px; text-transform: uppercase; opacity: 0.6; }
+
+/* Botón Ultra-Moderno */
+.btn-main {
+    display: inline-flex;
+    align-items: center;
+    background: transparent;
+    color: var(--white);
+    text-decoration: none;
+    border: 1px solid var(--white);
+    padding: 20px 40px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    transition: 0.4s;
+}
+
+.btn-main:hover {
+    background: var(--white);
+    color: var(--dark);
+}
+
+.btn-icon { margin-left: 20px; font-size: 24px; }
+
+.close-btn {
+    position: absolute;
+    top: 50px; right: 50px;
+    text-decoration: none; color: var(--white);
+    font-size: 12px; letter-spacing: 3px;
+    border-bottom: 1px solid var(--gold);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .viewport { height: auto; padding: 100px 0; overflow-y: auto; }
+    .product-layout { flex-direction: column; }
+    .image-wrapper { padding-right: 0; margin-bottom: 80px; width: 100%; }
+    .content-box { padding-left: 0; text-align: center; }
+    h1 { font-size: 50px; }
+    .specs-horizontal { justify-content: center; }
+    .image-wrapper img { height: 400px; box-shadow: 20px 20px 0px var(--gold); }
+}
