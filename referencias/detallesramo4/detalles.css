@@ -1,144 +1,174 @@
 :root {
-    --pop-pink: #ff007a;
-    --pop-blue: #00d4ff;
-    --glass-bg: rgba(255, 255, 255, 0.7);
-    --font-main: 'Space Grotesk', sans-serif;
+    --primary: #2d3436;
+    --accent: #ff7675;
+    --aurora-1: #ffeaa7;
+    --aurora-2: #fab1a0;
+    --font-serif: 'Fraunces', serif;
+    --font-sans: 'Outfit', sans-serif;
 }
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-    margin: 0;
+    background: #fff;
+    font-family: var(--font-sans);
+    color: var(--primary);
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* Fondo animado tipo Aurora */
+.aurora-bg {
+    position: fixed;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(circle at center, var(--aurora-1) 0%, var(--aurora-2) 30%, #fff 70%);
+    z-index: -1;
+    animation: rotateAurora 20s linear infinite;
+    opacity: 0.5;
+}
+
+@keyframes rotateAurora {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.master-container {
     height: 100vh;
     display: flex;
-    justify-content: center;
     align-items: center;
-    background: #000; /* Fondo oscuro para que el vidrio resalte */
-    font-family: var(--font-main);
-    overflow: hidden;
-}
-
-/* El círculo de color que se ve detrás del vidrio */
-.blob {
-    position: absolute;
-    width: 400px;
-    height: 400px;
-    background: linear-gradient(45deg, var(--pop-pink), var(--pop-blue));
-    filter: blur(80px);
-    border-radius: 50%;
-    z-index: 1;
-    animation: move 10s infinite alternate;
-}
-
-@keyframes move {
-    from { transform: translate(-100px, -100px); }
-    to { transform: translate(100px, 100px); }
-}
-
-.product-glass-card {
-    position: relative;
-    z-index: 10;
-    width: 800px;
-    background: var(--glass-bg);
-    backdrop-filter: blur(20px); /* El efecto de vidrio */
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 40px;
-    display: flex;
+    justify-content: center;
     padding: 40px;
-    gap: 40px;
 }
 
-/* Imagen flotante que sale del marco */
-.image-wrapper {
-    flex: 1;
-    position: relative;
-}
-
-.floating-img {
-    width: 110%;
-    height: 450px;
-    object-fit: cover;
-    border-radius: 30px;
-    box-shadow: 0 30px 60px rgba(0,0,0,0.3);
-    transform: rotate(-5deg) translateY(-60px); /* Inclinación y elevación */
-    transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.product-glass-card:hover .floating-img {
-    transform: rotate(0deg) translateY(-80px) scale(1.05);
-}
-
-/* Contenido */
-.content-wrapper {
-    flex: 1;
+.product-layout {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    gap: 80px;
 }
 
-.stock-badge {
-    background: #000;
+/* Imagen con forma orgánica */
+.visual-box {
+    position: relative;
+    flex: 1;
+}
+
+.main-image-wrapper {
+    width: 500px;
+    height: 650px;
+    border-radius: 200px 200px 50px 50px; /* Forma de arco */
+    overflow: hidden;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.15);
+}
+
+.main-image-wrapper img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 1s ease;
+}
+
+.floating-label {
+    position: absolute;
+    top: 50px; left: -30px;
+    background: var(--primary);
     color: #fff;
-    padding: 5px 15px;
-    border-radius: 50px;
+    padding: 10px 20px;
+    transform: rotate(-90deg);
     font-size: 12px;
+    letter-spacing: 2px;
     text-transform: uppercase;
 }
 
-.main-title {
-    font-size: 3.5rem;
-    line-height: 1;
-    margin-top: 20px;
-    font-weight: 300;
+/* Tipografía y Textos */
+.text-box { flex: 1; }
+
+.pre-title {
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 5px;
+    color: var(--accent);
+    font-weight: 600;
 }
 
-.main-title strong {
-    color: var(--pop-pink);
-    font-weight: 700;
+.main-title {
+    font-family: var(--font-serif);
+    font-size: 5rem;
+    line-height: 0.9;
+    margin: 20px 0;
+}
+
+.main-title i {
+    font-weight: 300;
+    color: var(--accent);
 }
 
 .description {
-    font-size: 1.1rem;
-    color: #333;
-    line-height: 1.4;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 50px;
+    max-width: 450px;
+    font-weight: 300;
 }
 
-/* Zona de acción */
-.action-zone {
+/* Botón Magnético */
+.price-action {
     display: flex;
     align-items: center;
-    background: rgba(0,0,0,0.05);
-    padding: 10px;
-    border-radius: 100px;
+    gap: 40px;
 }
 
-.price-pill {
-    padding: 0 25px;
-    font-size: 2rem;
-    font-weight: 700;
-}
+.price-group small { display: block; text-transform: uppercase; font-size: 10px; color: #888; }
+.price-amount { font-size: 2.5rem; font-weight: 600; }
 
-.add-button {
-    flex: 1;
-    background: #000;
-    color: #fff;
-    border: none;
-    padding: 20px;
+.magnetic-button {
+    position: relative;
+    background: transparent;
+    border: 1px solid var(--primary);
+    padding: 25px 50px;
     border-radius: 100px;
-    font-size: 1.2rem;
-    font-weight: 700;
     cursor: pointer;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    transition: 0.3s;
+    overflow: hidden;
+    transition: all 0.4s;
 }
 
-.add-button:hover {
-    background: var(--pop-pink);
-    transform: scale(1.05);
+.btn-text {
+    position: relative;
+    z-index: 2;
+    font-size: 1.1rem;
+    font-weight: 600;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .product-glass-card { flex-direction: column; width: 90%; padding-top: 100px; }
-    .floating-img { width: 100%; transform: translateY(-80px) rotate(0); }
+.btn-circle {
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 0; height: 0;
+    background: var(--primary);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+    z-index: 1;
+}
+
+.magnetic-button:hover { color: #fff; }
+.magnetic-button:hover .btn-circle { width: 300px; height: 300px; }
+
+/* Animación de entrada */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s forwards;
+}
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+.delay-3 { animation-delay: 0.6s; }
+
+@keyframes fadeInUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 1000px) {
+    .product-layout { flex-direction: column; text-align: center; }
+    .main-image-wrapper { width: 300px; height: 400px; }
+    .main-title { font-size: 3.5rem; }
 }

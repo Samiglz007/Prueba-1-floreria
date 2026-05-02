@@ -1,22 +1,23 @@
-const btn = document.getElementById('main-btn');
+// Efecto de Zoom Suave en la imagen
+const img = document.getElementById('zoom-img');
+const box = document.querySelector('.main-image-wrapper');
 
-btn.addEventListener('click', function() {
-    // Animación de escala al presionar
-    this.style.transform = 'scale(0.9)';
-    
-    setTimeout(() => {
-        this.style.transform = 'scale(1.05)';
-        this.innerHTML = '¡Agregado! 💖';
-        this.style.background = '#00d4ff'; // Cambia a azul al éxito
-    }, 150);
+box.addEventListener('mousemove', (e) => {
+    const { left, top, width, height } = box.getBoundingClientRect();
+    const x = (e.clientX - left) / width * 100;
+    const y = (e.clientY - top) / height * 100;
+    img.style.transformOrigin = `${x}% ${y}%`;
+    img.style.transform = "scale(1.5)";
 });
 
-// Movimiento suave del blob de fondo con el mouse
-document.addEventListener('mousemove', (e) => {
-    const blob = document.querySelector('.blob');
-    const x = e.clientX;
-    const y = e.clientY;
-    
-    blob.style.left = x + 'px';
-    blob.style.top = y + 'px';
+box.addEventListener('mouseleave', () => {
+    img.style.transform = "scale(1)";
+});
+
+// Feedback del botón
+const btn = document.getElementById('buy-action');
+btn.addEventListener('click', () => {
+    btn.innerHTML = "Excelente elección";
+    btn.style.background = "#2d3436";
+    btn.style.color = "#fff";
 });

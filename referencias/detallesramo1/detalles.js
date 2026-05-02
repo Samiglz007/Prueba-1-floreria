@@ -1,22 +1,23 @@
-document.getElementById('btn-cart').addEventListener('click', function() {
-    const btn = this;
-    const text = btn.querySelector('.btn-text');
-    
-    // Cambiar estado a "Cargando"
-    text.innerText = 'Agregando...';
-    btn.style.pointerEvents = 'none';
-    btn.style.opacity = '0.7';
+// Efecto de Zoom Suave en la imagen
+const img = document.getElementById('zoom-img');
+const box = document.querySelector('.main-image-wrapper');
 
-    setTimeout(() => {
-        text.innerText = '¡En el carrito! ✨';
-        btn.style.background = '#55efc4'; // Verde menta éxito
-        btn.style.opacity = '1';
-        
-        // Regresar a la normalidad después de 3 segundos
-        setTimeout(() => {
-            text.innerText = 'Agregar al Carrito';
-            btn.style.background = '';
-            btn.style.pointerEvents = 'all';
-        }, 3000);
-    }, 1000);
+box.addEventListener('mousemove', (e) => {
+    const { left, top, width, height } = box.getBoundingClientRect();
+    const x = (e.clientX - left) / width * 100;
+    const y = (e.clientY - top) / height * 100;
+    img.style.transformOrigin = `${x}% ${y}%`;
+    img.style.transform = "scale(1.5)";
+});
+
+box.addEventListener('mouseleave', () => {
+    img.style.transform = "scale(1)";
+});
+
+// Feedback del botón
+const btn = document.getElementById('buy-action');
+btn.addEventListener('click', () => {
+    btn.innerHTML = "Excelente elección";
+    btn.style.background = "#2d3436";
+    btn.style.color = "#fff";
 });

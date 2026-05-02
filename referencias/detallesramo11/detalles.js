@@ -1,27 +1,23 @@
-// Efecto de inclinación inteligente (Smart Tilt)
-const stage = document.querySelector('.visual-stage');
-const orb = document.querySelector('.image-orb');
+// Efecto de Zoom Suave en la imagen
+const img = document.getElementById('zoom-img');
+const box = document.querySelector('.main-image-wrapper');
 
-document.addEventListener('mousemove', (e) => {
-    let x = (window.innerWidth / 2 - e.pageX) / 45;
-    let y = (window.innerHeight / 2 - e.pageY) / 45;
-    
-    orb.style.transform = `rotateY(${x}deg) rotateX(${-y}deg)`;
-    
-    // El título también se mueve levemente
-    document.querySelector('.grand-title').style.transform = `translateX(${x * 0.5}px)`;
+box.addEventListener('mousemove', (e) => {
+    const { left, top, width, height } = box.getBoundingClientRect();
+    const x = (e.clientX - left) / width * 100;
+    const y = (e.clientY - top) / height * 100;
+    img.style.transformOrigin = `${x}% ${y}%`;
+    img.style.transform = "scale(1.5)";
 });
 
-// Animación de compra
-const btn = document.getElementById('btn');
-btn.addEventListener('click', function() {
-    this.style.width = '100px';
-    this.innerHTML = '...';
-    
-    setTimeout(() => {
-        this.innerHTML = 'RESERVADO';
-        this.style.width = '100%';
-        this.style.background = '#c5a367';
-        this.style.color = '#000';
-    }, 1500);
+box.addEventListener('mouseleave', () => {
+    img.style.transform = "scale(1)";
+});
+
+// Feedback del botón
+const btn = document.getElementById('buy-action');
+btn.addEventListener('click', () => {
+    btn.innerHTML = "Excelente elección";
+    btn.style.background = "#2d3436";
+    btn.style.color = "#fff";
 });

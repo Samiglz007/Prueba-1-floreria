@@ -3,53 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elegancia Real | Edición Black</title>
-    <!-- Fuentes: Syne para títulos (muy moderna) e Inter para texto -->
+    <title>Elegancia Real | Aurora Edition</title>
+    <!-- Fuentes: Outfit (moderna) y Fraunces (serif variable) -->
     <link href="https://googleapis.com" rel="stylesheet">
     <link rel="stylesheet" href="detalles.css">
 </head>
 <body>
 
-    <div class="product-container">
-        <!-- Tarjeta Flotante -->
-        <main class="luxury-card">
+    <div class="aurora-bg"></div>
+
+    <main class="master-container">
+        <!-- El producto parece flotar libremente -->
+        <div class="product-layout">
             
-            <div class="image-section">
-                <img src="arreglo3.jpeg" alt="Ramo Hello Kitty" class="main-photo">
-                <div class="price-bubble">$550</div>
+            <div class="visual-box">
+                <div class="main-image-wrapper">
+                    <img src="arreglo3.jpeg" alt="Ramo Premium" id="zoom-img">
+                </div>
+                <div class="floating-label">Edición Limitada</div>
             </div>
 
-            <div class="content-section">
-                <div class="header-group">
-                    <span class="tag">Premium Floral Design</span>
-                    <h1 class="product-title">Elegancia <br>Real</h1>
+            <div class="text-box">
+                <header class="reveal">
+                    <span class="pre-title">Artesanía Floral</span>
+                    <h1 class="main-title">Elegancia <i>Real</i></h1>
+                </header>
+
+                <div class="description reveal delay-1">
+                    <p>Un diálogo entre la naturaleza y la cultura pop. Rosas de corte profundo fusionadas con la esencia de Sanrio.</p>
                 </div>
 
-                <div class="details">
-                    <p class="description">
-                        No es solo un ramo, es una declaración de estilo. Combinamos la icónica ternura de <strong>Hello Kitty</strong> con la sofisticación de flores frescas de exportación.
-                    </p>
+                <div class="price-action reveal delay-2">
+                    <div class="price-group">
+                        <small>Inversión</small>
+                        <span class="price-amount">$550.00</span>
+                    </div>
                     
-                    <ul class="specs-list">
-                        <li><span>✔</span> Diseño Artesanal</li>
-                        <li><span>✔</span> Rosas de Selección</li>
-                        <li><span>✔</span> Empaque Especial</li>
-                    </ul>
-                </div>
-
-                <div class="footer-actions">
-                    <button class="cta-button" id="cart-btn">
-                        <span class="btn-label">Lo quiero ahora</span>
-                        <div class="btn-arrow">
-                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://w3.org"><path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                        </div>
+                    <button class="magnetic-button" id="buy-action">
+                        <span class="btn-circle"></span>
+                        <span class="btn-text">Adquirir pieza</span>
                     </button>
-                    <p class="availability">Disponible para entrega inmediata</p>
                 </div>
-            </div>
 
-        </main>
-    </div>
+                <footer class="extra-info reveal delay-3">
+                    <span>Disponible: Ciudad de México</span>
+                    <span>•</span>
+                    <span>Envío prioritario hoy</span>
+                </footer>
+            </div>
+        </div>
+    </main>
 
     <script src="detalles.js"></script>
 </body>

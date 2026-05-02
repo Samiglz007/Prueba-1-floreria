@@ -3,54 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luxury Floral Design</title>
-    <!-- Tipografía High-End -->
+    <title>Elegancia Real | Aurora Edition</title>
+    <!-- Fuentes: Outfit (moderna) y Fraunces (serif variable) -->
     <link href="https://googleapis.com" rel="stylesheet">
     <link rel="stylesheet" href="detalles.css">
 </head>
 <body>
 
-    <div class="product-wrapper">
-        <div class="main-card">
-            <!-- Sección de Imagen con efecto Zoom -->
-            <div class="photo-side">
-                <img src="arreglo2.jpeg" alt="Elegancia Real" class="product-img">
-                <div class="overlay-tag">Exclusivo</div>
+    <div class="aurora-bg"></div>
+
+    <main class="master-container">
+        <!-- El producto parece flotar libremente -->
+        <div class="product-layout">
+            
+            <div class="visual-box">
+                <div class="main-image-wrapper">
+                    <img src="arreglo2.jpeg" alt="Ramo Premium" id="zoom-img">
+                </div>
+                <div class="floating-label">Edición Limitada</div>
             </div>
 
-            <!-- Sección de Detalles -->
-            <div class="info-side">
-                <nav class="breadcrumb">Catálogo / Premium / Arreglos</nav>
-                
-                <h1 class="title">Elegancia <span>Real</span></h1>
-                
-                <div class="price-container">
-                    <span class="currency">$</span>
-                    <span class="price">550</span>
-                    <span class="tax">mxn</span>
+            <div class="text-box">
+                <header class="reveal">
+                    <span class="pre-title">Artesanía Floral</span>
+                    <h1 class="main-title">Elegancia <i>Real</i></h1>
+                </header>
+
+                <div class="description reveal delay-1">
+                    <p>Un diálogo entre la naturaleza y la cultura pop. Rosas de corte profundo fusionadas con la esencia de Sanrio.</p>
                 </div>
 
-                <p class="description">
-                    Una pieza de diseño floral que trasciende lo convencional. 
-                    Combinamos la frescura de rosas seleccionadas con la dulzura 
-                    icónica de un detalle artesanal único.
-                </p>
-
-                <div class="specs">
-                    <div class="spec"><strong>Follaje:</strong> Fino Seleccionado</div>
-                    <div class="spec"><strong>Estilo:</strong> Contemporáneo</div>
-                </div>
-
-                <div class="actions">
-                    <button class="main-button" id="buy-btn">
-                        <span class="text">Reservar Ahora</span>
-                        <span class="icon">→</span>
+                <div class="price-action reveal delay-2">
+                    <div class="price-group">
+                        <small>Inversión</small>
+                        <span class="price-amount">$550.00</span>
+                    </div>
+                    
+                    <button class="magnetic-button" id="buy-action">
+                        <span class="btn-circle"></span>
+                        <span class="btn-text">Adquirir pieza</span>
                     </button>
-                    <p class="shipping-notice">✨ Entrega garantizada hoy mismo</p>
                 </div>
+
+                <footer class="extra-info reveal delay-3">
+                    <span>Disponible: Ciudad de México</span>
+                    <span>•</span>
+                    <span>Envío prioritario hoy</span>
+                </footer>
             </div>
         </div>
-    </div>
+    </main>
 
     <script src="detalles.js"></script>
 </body>

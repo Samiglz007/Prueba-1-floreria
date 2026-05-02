@@ -1,122 +1,174 @@
 :root {
-    --primary-pink: #ffb7c5;
-    --dark-pink: #e68fa0;
-    --soft-bg: #fff5f6;
-    --text-main: #333;
-    --white: #ffffff;
+    --primary: #2d3436;
+    --accent: #ff7675;
+    --aurora-1: #ffeaa7;
+    --aurora-2: #fab1a0;
+    --font-serif: 'Fraunces', serif;
+    --font-sans: 'Outfit', sans-serif;
 }
 
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
 body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background-color: var(--soft-bg);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background: #fff;
+    font-family: var(--font-sans);
+    color: var(--primary);
+    overflow-x: hidden;
     min-height: 100vh;
 }
 
-.product-card {
-    background: var(--white);
-    display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    max-width: 950px;
-    border-radius: 30px;
-    overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+/* Fondo animado tipo Aurora */
+.aurora-bg {
+    position: fixed;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(circle at center, var(--aurora-1) 0%, var(--aurora-2) 30%, #fff 70%);
+    z-index: -1;
+    animation: rotateAurora 20s linear infinite;
+    opacity: 0.5;
 }
 
-.image-section {
-    position: relative;
-    padding: 20px;
+@keyframes rotateAurora {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 
-.image-section img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 20px;
-    transition: transform 0.5s ease;
-}
-
-.badge {
-    position: absolute;
-    top: 40px;
-    left: 0;
-    background: #000;
-    color: #fff;
-    padding: 8px 15px;
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    writing-mode: vertical-rl;
-    transform: rotate(180deg);
-}
-
-.info-section {
-    padding: 60px;
+.master-container {
+    height: 100vh;
     display: flex;
-    flex-direction: column;
+    align-items: center;
     justify-content: center;
+    padding: 40px;
 }
 
-h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 3.5rem;
-    margin: 10px 0;
+.product-layout {
+    display: flex;
+    align-items: center;
+    max-width: 1200px;
+    gap: 80px;
 }
 
-h1 span {
-    color: var(--dark-pink);
-    font-style: italic;
+/* Imagen con forma orgánica */
+.visual-box {
+    position: relative;
+    flex: 1;
 }
 
-.category {
-    color: var(--dark-pink);
+.main-image-wrapper {
+    width: 500px;
+    height: 650px;
+    border-radius: 200px 200px 50px 50px; /* Forma de arco */
+    overflow: hidden;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.15);
+}
+
+.main-image-wrapper img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 1s ease;
+}
+
+.floating-label {
+    position: absolute;
+    top: 50px; left: -30px;
+    background: var(--primary);
+    color: #fff;
+    padding: 10px 20px;
+    transform: rotate(-90deg);
+    font-size: 12px;
+    letter-spacing: 2px;
     text-transform: uppercase;
-    letter-spacing: 3px;
-    font-size: 0.8rem;
-    margin: 0;
+}
+
+/* Tipografía y Textos */
+.text-box { flex: 1; }
+
+.pre-title {
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 5px;
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.main-title {
+    font-family: var(--font-serif);
+    font-size: 5rem;
+    line-height: 0.9;
+    margin: 20px 0;
+}
+
+.main-title i {
+    font-weight: 300;
+    color: var(--accent);
 }
 
 .description {
-    color: #666;
+    font-size: 1.2rem;
     line-height: 1.6;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
+    max-width: 450px;
+    font-weight: 300;
 }
 
-.pricing {
+/* Botón Magnético */
+.price-action {
     display: flex;
     align-items: center;
     gap: 40px;
-    border-top: 1px solid #eee;
-    padding-top: 30px;
 }
 
-.amount {
-    display: block;
-    font-size: 2rem;
-    font-weight: 600;
-}
+.price-group small { display: block; text-transform: uppercase; font-size: 10px; color: #888; }
+.price-amount { font-size: 2.5rem; font-weight: 600; }
 
-.buy-btn {
+.magnetic-button {
+    position: relative;
     background: transparent;
-    border: 2px solid #000;
-    padding: 15px 40px;
-    border-radius: 50px;
+    border: 1px solid var(--primary);
+    padding: 25px 50px;
+    border-radius: 100px;
     cursor: pointer;
+    overflow: hidden;
+    transition: all 0.4s;
+}
+
+.btn-text {
+    position: relative;
+    z-index: 2;
+    font-size: 1.1rem;
     font-weight: 600;
-    transition: all 0.3s;
 }
 
-.buy-btn:hover {
-    background: #000;
-    color: #fff;
+.btn-circle {
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 0; height: 0;
+    background: var(--primary);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+    z-index: 1;
 }
 
-/* Responsivo para móviles */
-@media (max-width: 768px) {
-    .product-card { grid-template-columns: 1fr; margin: 20px; }
-    .info-section { padding: 30px; }
-    h1 { font-size: 2.5rem; }
+.magnetic-button:hover { color: #fff; }
+.magnetic-button:hover .btn-circle { width: 300px; height: 300px; }
+
+/* Animación de entrada */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s forwards;
+}
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+.delay-3 { animation-delay: 0.6s; }
+
+@keyframes fadeInUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 1000px) {
+    .product-layout { flex-direction: column; text-align: center; }
+    .main-image-wrapper { width: 300px; height: 400px; }
+    .main-title { font-size: 3.5rem; }
 }

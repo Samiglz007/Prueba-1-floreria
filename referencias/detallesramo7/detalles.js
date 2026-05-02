@@ -1,18 +1,23 @@
-const btn = document.getElementById('buy-btn');
+// Efecto de Zoom Suave en la imagen
+const img = document.getElementById('zoom-img');
+const box = document.querySelector('.main-image-wrapper');
 
+box.addEventListener('mousemove', (e) => {
+    const { left, top, width, height } = box.getBoundingClientRect();
+    const x = (e.clientX - left) / width * 100;
+    const y = (e.clientY - top) / height * 100;
+    img.style.transformOrigin = `${x}% ${y}%`;
+    img.style.transform = "scale(1.5)";
+});
+
+box.addEventListener('mouseleave', () => {
+    img.style.transform = "scale(1)";
+});
+
+// Feedback del botón
+const btn = document.getElementById('buy-action');
 btn.addEventListener('click', () => {
-    btn.style.transform = 'scale(0.95)';
-    setTimeout(() => {
-        btn.style.transform = 'scale(1.02)';
-        btn.querySelector('span').innerText = '¡Procesando! ✨';
-    }, 100);
-});
-
-// Animación simple para la imagen al entrar
-document.querySelector('.main-img').addEventListener('mouseenter', () => {
-    document.querySelector('.main-img img').style.transform = 'scale(1.1)';
-});
-
-document.querySelector('.main-img').addEventListener('mouseleave', () => {
-    document.querySelector('.main-img img').style.transform = 'scale(1)';
+    btn.innerHTML = "Excelente elección";
+    btn.style.background = "#2d3436";
+    btn.style.color = "#fff";
 });

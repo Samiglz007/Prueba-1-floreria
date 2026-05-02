@@ -3,44 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elegancia Real | Pop Edition</title>
-    <!-- Fuente: Space Grotesk (Muy moderna y tecnológica) -->
+    <title>Elegancia Real | Aurora Edition</title>
+    <!-- Fuentes: Outfit (moderna) y Fraunces (serif variable) -->
     <link href="https://googleapis.com" rel="stylesheet">
     <link rel="stylesheet" href="detalles.css">
 </head>
 <body>
 
-    <div class="glass-container">
-        <!-- Elementos decorativos de fondo -->
-        <div class="blob"></div>
-        
-        <main class="product-glass-card">
-            <div class="image-wrapper">
-                <img src="arreglo4.jpeg" alt="Ramo Hello Kitty" class="floating-img">
+    <div class="aurora-bg"></div>
+
+    <main class="master-container">
+        <!-- El producto parece flotar libremente -->
+        <div class="product-layout">
+            
+            <div class="visual-box">
+                <div class="main-image-wrapper">
+                    <img src="arreglo4.jpeg" alt="Ramo Premium" id="zoom-img">
+                </div>
+                <div class="floating-label">Edición Limitada</div>
             </div>
 
-            <div class="content-wrapper">
-                <div class="top-info">
-                    <span class="stock-badge">Solo 3 disponibles</span>
-                    <h1 class="main-title">Elegancia <br><strong>Real</strong></h1>
+            <div class="text-box">
+                <header class="reveal">
+                    <span class="pre-title">Artesanía Floral</span>
+                    <h1 class="main-title">Elegancia <i>Real</i></h1>
+                </header>
+
+                <div class="description reveal delay-1">
+                    <p>Un diálogo entre la naturaleza y la cultura pop. Rosas de corte profundo fusionadas con la esencia de Sanrio.</p>
                 </div>
 
-                <p class="description">
-                    Un diseño disruptivo para quienes no se conforman con lo común. Rosas vibrantes y la ternura de Sanrio en una composición única.
-                </p>
-
-                <div class="action-zone">
-                    <div class="price-pill">
-                        <span class="price-val">$550</span>
+                <div class="price-action reveal delay-2">
+                    <div class="price-group">
+                        <small>Inversión</small>
+                        <span class="price-amount">$550.00</span>
                     </div>
-                    <button class="add-button" id="main-btn">
-                        <span class="btn-text">¡Lo quiero!</span>
-                        <div class="sparkles">✨</div>
+                    
+                    <button class="magnetic-button" id="buy-action">
+                        <span class="btn-circle"></span>
+                        <span class="btn-text">Adquirir pieza</span>
                     </button>
                 </div>
+
+                <footer class="extra-info reveal delay-3">
+                    <span>Disponible: Ciudad de México</span>
+                    <span>•</span>
+                    <span>Envío prioritario hoy</span>
+                </footer>
             </div>
-        </main>
-    </div>
+        </div>
+    </main>
 
     <script src="detalles.js"></script>
 </body>

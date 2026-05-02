@@ -1,17 +1,23 @@
-const btn = document.getElementById('order-btn');
+// Efecto de Zoom Suave en la imagen
+const img = document.getElementById('zoom-img');
+const box = document.querySelector('.main-image-wrapper');
 
-btn.addEventListener('click', function() {
-    this.querySelector('.btn-label').innerText = "Pieza Reservada";
-    this.querySelector('.btn-line').style.background = "#b38b59";
-    this.querySelector('.btn-line').style.width = "100%";
-    
-    // Pequeño efecto de vibración premium
-    navigator.vibrate(50);
+box.addEventListener('mousemove', (e) => {
+    const { left, top, width, height } = box.getBoundingClientRect();
+    const x = (e.clientX - left) / width * 100;
+    const y = (e.clientY - top) / height * 100;
+    img.style.transformOrigin = `${x}% ${y}%`;
+    img.style.transform = "scale(1.5)";
 });
 
-// Movimiento de la imagen según el scroll (Parallax)
-window.addEventListener('scroll', () => {
-    const img = document.getElementById('main-photo');
-    let value = window.scrollY;
-    img.style.top = value * 0.5 + 'px';
+box.addEventListener('mouseleave', () => {
+    img.style.transform = "scale(1)";
+});
+
+// Feedback del botón
+const btn = document.getElementById('buy-action');
+btn.addEventListener('click', () => {
+    btn.innerHTML = "Excelente elección";
+    btn.style.background = "#2d3436";
+    btn.style.color = "#fff";
 });

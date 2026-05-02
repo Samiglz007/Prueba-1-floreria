@@ -3,49 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elegancia Real | Editorial</title>
+    <title>Elegancia Real | Aurora Edition</title>
+    <!-- Fuentes: Outfit (moderna) y Fraunces (serif variable) -->
     <link href="https://googleapis.com" rel="stylesheet">
     <link rel="stylesheet" href="detalles.css">
 </head>
 <body>
 
-    <section class="editorial-container">
-        <!-- Fondo con el nombre en gigante (Marca de agua) -->
-        <div class="bg-text">PREMIUM</div>
+    <div class="aurora-bg"></div>
 
-        <div class="editorial-wrapper">
-            <!-- Columna de Imagen -->
-            <div class="photo-column">
-                <div class="image-box">
-                    <img src="arreglo8.jpeg" alt="Ramo Elegancia Real" id="main-photo">
+    <main class="master-container">
+        <!-- El producto parece flotar libremente -->
+        <div class="product-layout">
+            
+            <div class="visual-box">
+                <div class="main-image-wrapper">
+                    <img src="arreglo8.jpeg" alt="Ramo Premium" id="zoom-img">
                 </div>
+                <div class="floating-label">Edición Limitada</div>
             </div>
 
-            <!-- Columna de Texto -->
-            <div class="content-column">
-                <header>
-                    <span class="collection-name">Colección 2024</span>
-                    <h1 class="main-title">Elegancia <br><span class="italic">Real</span></h1>
+            <div class="text-box">
+                <header class="reveal">
+                    <span class="pre-title">Artesanía Floral</span>
+                    <h1 class="main-title">Elegancia <i>Real</i></h1>
                 </header>
 
-                <div class="body-text">
-                    <p class="description">Una oda a la sofisticación floral. Nuestro diseño insignia combina rosas de tallo largo con el encanto icónico de Hello Kitty en una pieza de coleccionista.</p>
-                    
-                    <div class="price-box">
-                        <span class="tag">Inversión</span>
-                        <span class="value">$550.00</span>
-                    </div>
+                <div class="description reveal delay-1">
+                    <p>Un diálogo entre la naturaleza y la cultura pop. Rosas de corte profundo fusionadas con la esencia de Sanrio.</p>
                 </div>
 
-                <div class="cta-area">
-                    <button class="editorial-btn" id="order-btn">
-                        <span class="btn-label">Hacer Pedido</span>
-                        <span class="btn-line"></span>
+                <div class="price-action reveal delay-2">
+                    <div class="price-group">
+                        <small>Inversión</small>
+                        <span class="price-amount">$550.00</span>
+                    </div>
+                    
+                    <button class="magnetic-button" id="buy-action">
+                        <span class="btn-circle"></span>
+                        <span class="btn-text">Adquirir pieza</span>
                     </button>
                 </div>
+
+                <footer class="extra-info reveal delay-3">
+                    <span>Disponible: Ciudad de México</span>
+                    <span>•</span>
+                    <span>Envío prioritario hoy</span>
+                </footer>
             </div>
         </div>
-    </section>
+    </main>
 
     <script src="detalles.js"></script>
 </body>

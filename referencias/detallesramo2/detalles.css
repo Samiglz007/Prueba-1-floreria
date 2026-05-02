@@ -1,155 +1,174 @@
 :root {
-    --gold: #c5a880;
-    --dark: #1a1a1a;
-    --grey: #f4f4f4;
-    --text: #4a4a4a;
-    --serif: 'Cormorant Garamond', serif;
-    --sans: 'Montserrat', sans-serif;
+    --primary: #2d3436;
+    --accent: #ff7675;
+    --aurora-1: #ffeaa7;
+    --aurora-2: #fab1a0;
+    --font-serif: 'Fraunces', serif;
+    --font-sans: 'Outfit', sans-serif;
 }
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-    background-color: #fdfdfd;
-    font-family: var(--sans);
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    color: var(--dark);
-}
-
-.product-wrapper {
-    width: 100%;
-    max-width: 1100px;
-    padding: 20px;
-}
-
-.main-card {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
     background: #fff;
-    box-shadow: 0 40px 100px rgba(0,0,0,0.05);
-    border-radius: 4px; /* Bordes rectos son más "lujosos" */
-    overflow: hidden;
+    font-family: var(--font-sans);
+    color: var(--primary);
+    overflow-x: hidden;
+    min-height: 100vh;
 }
 
-/* Lado de la Foto */
-.photo-side {
-    position: relative;
-    height: 600px;
-    overflow: hidden;
+/* Fondo animado tipo Aurora */
+.aurora-bg {
+    position: fixed;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(circle at center, var(--aurora-1) 0%, var(--aurora-2) 30%, #fff 70%);
+    z-index: -1;
+    animation: rotateAurora 20s linear infinite;
+    opacity: 0.5;
 }
 
-.product-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+@keyframes rotateAurora {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 
-.main-card:hover .product-img {
-    transform: scale(1.08);
-}
-
-.overlay-tag {
-    position: absolute;
-    bottom: 30px;
-    right: 0;
-    background: var(--dark);
-    color: #fff;
-    padding: 10px 25px;
-    font-size: 11px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-}
-
-/* Lado del Contenido */
-.info-side {
-    padding: 60px;
+.master-container {
+    height: 100vh;
     display: flex;
-    flex-direction: column;
+    align-items: center;
     justify-content: center;
+    padding: 40px;
 }
 
-.breadcrumb {
-    font-size: 10px;
-    text-transform: uppercase;
+.product-layout {
+    display: flex;
+    align-items: center;
+    max-width: 1200px;
+    gap: 80px;
+}
+
+/* Imagen con forma orgánica */
+.visual-box {
+    position: relative;
+    flex: 1;
+}
+
+.main-image-wrapper {
+    width: 500px;
+    height: 650px;
+    border-radius: 200px 200px 50px 50px; /* Forma de arco */
+    overflow: hidden;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.15);
+}
+
+.main-image-wrapper img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 1s ease;
+}
+
+.floating-label {
+    position: absolute;
+    top: 50px; left: -30px;
+    background: var(--primary);
+    color: #fff;
+    padding: 10px 20px;
+    transform: rotate(-90deg);
+    font-size: 12px;
     letter-spacing: 2px;
-    color: #aaa;
-    margin-bottom: 20px;
+    text-transform: uppercase;
 }
 
-.title {
-    font-family: var(--serif);
-    font-size: 4rem;
+/* Tipografía y Textos */
+.text-box { flex: 1; }
+
+.pre-title {
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 5px;
+    color: var(--accent);
     font-weight: 600;
+}
+
+.main-title {
+    font-family: var(--font-serif);
+    font-size: 5rem;
     line-height: 0.9;
-    margin-bottom: 25px;
+    margin: 20px 0;
 }
 
-.title span {
-    display: block;
-    color: var(--gold);
-    font-style: italic;
-    margin-left: 40px;
+.main-title i {
+    font-weight: 300;
+    color: var(--accent);
 }
-
-.price-container {
-    margin-bottom: 30px;
-}
-
-.price { font-size: 2.5rem; font-weight: 300; }
-.currency { vertical-align: super; font-size: 1.2rem; margin-right: 5px; }
-.tax { font-size: 12px; color: #aaa; text-transform: uppercase; margin-left: 10px; }
 
 .description {
-    font-size: 0.9rem;
-    line-height: 1.8;
-    color: var(--text);
-    margin-bottom: 30px;
-    border-left: 1px solid var(--gold);
-    padding-left: 20px;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 50px;
+    max-width: 450px;
+    font-weight: 300;
 }
 
-.specs {
-    margin-bottom: 40px;
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-/* Botón Minimalista */
-.main-button {
-    background: var(--dark);
-    color: white;
-    border: none;
-    padding: 20px 40px;
-    width: 100%;
+/* Botón Magnético */
+.price-action {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    gap: 40px;
+}
+
+.price-group small { display: block; text-transform: uppercase; font-size: 10px; color: #888; }
+.price-amount { font-size: 2.5rem; font-weight: 600; }
+
+.magnetic-button {
+    position: relative;
+    background: transparent;
+    border: 1px solid var(--primary);
+    padding: 25px 50px;
+    border-radius: 100px;
     cursor: pointer;
-    font-family: var(--sans);
-    font-weight: 500;
-    letter-spacing: 1px;
-    transition: 0.3s;
+    overflow: hidden;
+    transition: all 0.4s;
 }
 
-.main-button:hover {
-    background: var(--gold);
+.btn-text {
+    position: relative;
+    z-index: 2;
+    font-size: 1.1rem;
+    font-weight: 600;
 }
 
-.shipping-notice {
-    font-size: 11px;
-    margin-top: 15px;
-    color: #888;
-    text-align: center;
+.btn-circle {
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 0; height: 0;
+    background: var(--primary);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+    z-index: 1;
 }
 
-/* Mobile */
-@media (max-width: 850px) {
-    .main-card { grid-template-columns: 1fr; }
-    .photo-side { height: 400px; }
-    .info-side { padding: 40px 20px; }
-    .title { font-size: 3rem; }
+.magnetic-button:hover { color: #fff; }
+.magnetic-button:hover .btn-circle { width: 300px; height: 300px; }
+
+/* Animación de entrada */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s forwards;
+}
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+.delay-3 { animation-delay: 0.6s; }
+
+@keyframes fadeInUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 1000px) {
+    .product-layout { flex-direction: column; text-align: center; }
+    .main-image-wrapper { width: 300px; height: 400px; }
+    .main-title { font-size: 3.5rem; }
 }

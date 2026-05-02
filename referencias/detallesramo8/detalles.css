@@ -1,148 +1,174 @@
 :root {
-    --gold: #b38b59;
-    --black: #1a1a1a;
-    --grey: #f4f4f4;
-    --serif: 'Bodoni Moda', serif;
-    --sans: 'Montserrat', sans-serif;
+    --primary: #2d3436;
+    --accent: #ff7675;
+    --aurora-1: #ffeaa7;
+    --aurora-2: #fab1a0;
+    --font-serif: 'Fraunces', serif;
+    --font-sans: 'Outfit', sans-serif;
 }
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-    margin: 0;
     background: #fff;
-    font-family: var(--sans);
-    color: var(--black);
+    font-family: var(--font-sans);
+    color: var(--primary);
+    overflow-x: hidden;
+    min-height: 100vh;
 }
 
-.editorial-container {
+/* Fondo animado tipo Aurora */
+.aurora-bg {
+    position: fixed;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(circle at center, var(--aurora-1) 0%, var(--aurora-2) 30%, #fff 70%);
+    z-index: -1;
+    animation: rotateAurora 20s linear infinite;
+    opacity: 0.5;
+}
+
+@keyframes rotateAurora {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.master-container {
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
-    overflow: hidden;
+    padding: 40px;
 }
 
-/* Texto de fondo estilo revista */
-.bg-text {
-    position: absolute;
-    font-size: 20vw;
-    font-family: var(--serif);
-    font-weight: 700;
-    color: var(--grey);
-    z-index: -1;
-    bottom: -5%;
-    left: 5%;
-    line-height: 1;
-}
-
-.editorial-wrapper {
+.product-layout {
     display: flex;
-    max-width: 1200px;
-    width: 90%;
     align-items: center;
-    gap: 60px;
+    max-width: 1200px;
+    gap: 80px;
 }
 
-/* Imagen con recorte elegante */
-.photo-column {
-    flex: 1;
+/* Imagen con forma orgánica */
+.visual-box {
     position: relative;
-}
-
-.image-box {
-    width: 100%;
-    height: 700px;
-    clip-path: polygon(0 0, 100% 0, 90% 100%, 0% 100%); /* Recorte asimétrico */
-    overflow: hidden;
-    box-shadow: 20px 20px 60px rgba(0,0,0,0.1);
-}
-
-.image-box img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 1.5s cubic-bezier(0.19, 1, 0.22, 1);
-}
-
-.editorial-wrapper:hover #main-photo {
-    transform: scale(1.1);
-}
-
-/* Contenido */
-.content-column {
     flex: 1;
 }
 
-.collection-name {
-    text-transform: uppercase;
-    letter-spacing: 4px;
+.main-image-wrapper {
+    width: 500px;
+    height: 650px;
+    border-radius: 200px 200px 50px 50px; /* Forma de arco */
+    overflow: hidden;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.15);
+}
+
+.main-image-wrapper img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 1s ease;
+}
+
+.floating-label {
+    position: absolute;
+    top: 50px; left: -30px;
+    background: var(--primary);
+    color: #fff;
+    padding: 10px 20px;
+    transform: rotate(-90deg);
     font-size: 12px;
-    color: var(--gold);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* Tipografía y Textos */
+.text-box { flex: 1; }
+
+.pre-title {
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 5px;
+    color: var(--accent);
     font-weight: 600;
 }
 
 .main-title {
-    font-family: var(--serif);
-    font-size: 6rem;
-    line-height: 0.85;
+    font-family: var(--font-serif);
+    font-size: 5rem;
+    line-height: 0.9;
     margin: 20px 0;
 }
 
-.main-title .italic {
-    font-style: italic;
-    font-weight: 400;
-    padding-left: 40px;
+.main-title i {
+    font-weight: 300;
+    color: var(--accent);
 }
 
 .description {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: #555;
-    margin-bottom: 40px;
-    max-width: 400px;
-}
-
-.price-box {
-    margin-bottom: 50px;
-}
-
-.price-box .tag { font-size: 10px; text-transform: uppercase; color: #999; display: block; }
-.price-box .value { font-size: 2.5rem; font-family: var(--serif); }
-
-/* Botón Minimalista de Lujo */
-.editorial-btn {
-    background: transparent;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.btn-label {
-    font-weight: 600;
     font-size: 1.2rem;
-    margin-bottom: 10px;
-    transition: 0.3s;
+    line-height: 1.6;
+    margin-bottom: 50px;
+    max-width: 450px;
+    font-weight: 300;
 }
 
-.btn-line {
-    width: 100px;
-    height: 2px;
-    background: var(--black);
-    transition: width 0.4s ease;
+/* Botón Magnético */
+.price-action {
+    display: flex;
+    align-items: center;
+    gap: 40px;
 }
 
-.editorial-btn:hover .btn-line {
-    width: 200px;
-    background: var(--gold);
+.price-group small { display: block; text-transform: uppercase; font-size: 10px; color: #888; }
+.price-amount { font-size: 2.5rem; font-weight: 600; }
+
+.magnetic-button {
+    position: relative;
+    background: transparent;
+    border: 1px solid var(--primary);
+    padding: 25px 50px;
+    border-radius: 100px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.4s;
 }
 
-/* Responsive */
-@media (max-width: 900px) {
-    .editorial-wrapper { flex-direction: column; text-align: center; }
-    .image-box { height: 400px; clip-path: none; }
-    .main-title { font-size: 4rem; }
-    .editorial-btn { align-items: center; width: 100%; }
+.btn-text {
+    position: relative;
+    z-index: 2;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.btn-circle {
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 0; height: 0;
+    background: var(--primary);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+    z-index: 1;
+}
+
+.magnetic-button:hover { color: #fff; }
+.magnetic-button:hover .btn-circle { width: 300px; height: 300px; }
+
+/* Animación de entrada */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s forwards;
+}
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+.delay-3 { animation-delay: 0.6s; }
+
+@keyframes fadeInUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 1000px) {
+    .product-layout { flex-direction: column; text-align: center; }
+    .main-image-wrapper { width: 300px; height: 400px; }
+    .main-title { font-size: 3.5rem; }
 }

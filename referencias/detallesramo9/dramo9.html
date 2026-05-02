@@ -3,45 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elegancia Real | Concept</title>
-    <!-- Fuente: Unbounded (muy moderna y ancha) -->
+    <title>Elegancia Real | Aurora Edition</title>
+    <!-- Fuentes: Outfit (moderna) y Fraunces (serif variable) -->
     <link href="https://googleapis.com" rel="stylesheet">
     <link rel="stylesheet" href="detalles.css">
 </head>
 <body>
 
-    <div class="container">
-        <div class="product-grid">
-            <!-- Bloque de Imagen con Marco Grueso -->
-            <div class="image-card">
-                <img src="arreglo9.jpeg" alt="Ramo Elegancia Real">
-                <div class="label-vertical">LIMITED EDITION</div>
+    <div class="aurora-bg"></div>
+
+    <main class="master-container">
+        <!-- El producto parece flotar libremente -->
+        <div class="product-layout">
+            
+            <div class="visual-box">
+                <div class="main-image-wrapper">
+                    <img src="arreglo9.jpeg" alt="Ramo Premium" id="zoom-img">
+                </div>
+                <div class="floating-label">Edición Limitada</div>
             </div>
 
-            <!-- Bloque de Texto Estilo Poster -->
-            <div class="content-card">
-                <div class="header">
-                    <span class="id-number">#001 / 2024</span>
-                    <h1>ELEGANCIA<br>REAL</h1>
+            <div class="text-box">
+                <header class="reveal">
+                    <span class="pre-title">Artesanía Floral</span>
+                    <h1 class="main-title">Elegancia <i>Real</i></h1>
+                </header>
+
+                <div class="description reveal delay-1">
+                    <p>Un diálogo entre la naturaleza y la cultura pop. Rosas de corte profundo fusionadas con la esencia de Sanrio.</p>
                 </div>
 
-                <div class="price-bubble">
-                    $550.00
-                </div>
-
-                <p class="description">
-                    Un ensamble floral que desafía la tradición. Curaduría de rosas premium y elementos pop en una estructura de diseño único.
-                </p>
-
-                <footer class="footer-btns">
-                    <button class="buy-now" id="action-btn">
-                        COMPRAR AHORA
+                <div class="price-action reveal delay-2">
+                    <div class="price-group">
+                        <small>Inversión</small>
+                        <span class="price-amount">$550.00</span>
+                    </div>
+                    
+                    <button class="magnetic-button" id="buy-action">
+                        <span class="btn-circle"></span>
+                        <span class="btn-text">Adquirir pieza</span>
                     </button>
-                    <div class="shipping-badge">ENVÍO HOY</div>
+                </div>
+
+                <footer class="extra-info reveal delay-3">
+                    <span>Disponible: Ciudad de México</span>
+                    <span>•</span>
+                    <span>Envío prioritario hoy</span>
                 </footer>
             </div>
         </div>
-    </div>
+    </main>
 
     <script src="detalles.js"></script>
 </body>

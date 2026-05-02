@@ -3,38 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elegancia Real | Artesanía Floral</title>
-    <link rel="stylesheet" href="detalles.css">
+    <title>Elegancia Real | Aurora Edition</title>
+    <!-- Fuentes: Outfit (moderna) y Fraunces (serif variable) -->
     <link href="https://googleapis.com" rel="stylesheet">
+    <link rel="stylesheet" href="detalles.css">
 </head>
 <body>
-    <main class="product-card">
-        <div class="image-section">
-            <span class="badge">Edición Limitada</span>
-            <img src="arreglo6.jpeg" alt="Ramo Elegancia Real" id="main-flower">
-        </div>
-        
-        <div class="info-section">
-            <h4 class="category">Artesanía Floral</h4>
-            <h1>Elegancia <span>Real</span></h1>
-            <p class="description">
-                Un diálogo entre la naturaleza y la cultura pop. 
-                Rosas de corte profundo fusionadas con la esencia de Sanrio.
-            </p>
+
+    <div class="aurora-bg"></div>
+
+    <main class="master-container">
+        <!-- El producto parece flotar libremente -->
+        <div class="product-layout">
             
-            <div class="pricing">
-                <div class="price-box">
-                    <span class="label">Inversión</span>
-                    <span class="amount">$550.00</span>
+            <div class="visual-box">
+                <div class="main-image-wrapper">
+                    <img src="arreglo6.jpeg" alt="Ramo Premium" id="zoom-img">
                 </div>
-                <button class="buy-btn" id="buy-action">Adquirir pieza</button>
+                <div class="floating-label">Edición Limitada</div>
             </div>
-            
-            <p class="shipping-info">
-                📍 Ciudad de México • <strong>Envío prioritario hoy</strong>
-            </p>
+
+            <div class="text-box">
+                <header class="reveal">
+                    <span class="pre-title">Artesanía Floral</span>
+                    <h1 class="main-title">Elegancia <i>Real</i></h1>
+                </header>
+
+                <div class="description reveal delay-1">
+                    <p>Un diálogo entre la naturaleza y la cultura pop. Rosas de corte profundo fusionadas con la esencia de Sanrio.</p>
+                </div>
+
+                <div class="price-action reveal delay-2">
+                    <div class="price-group">
+                        <small>Inversión</small>
+                        <span class="price-amount">$550.00</span>
+                    </div>
+                    
+                    <button class="magnetic-button" id="buy-action">
+                        <span class="btn-circle"></span>
+                        <span class="btn-text">Adquirir pieza</span>
+                    </button>
+                </div>
+
+                <footer class="extra-info reveal delay-3">
+                    <span>Disponible: Ciudad de México</span>
+                    <span>•</span>
+                    <span>Envío prioritario hoy</span>
+                </footer>
+            </div>
         </div>
     </main>
+
     <script src="detalles.js"></script>
 </body>
 </html>

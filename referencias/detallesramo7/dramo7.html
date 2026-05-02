@@ -3,45 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elegancia Real | Bento Edition</title>
+    <title>Elegancia Real | Aurora Edition</title>
+    <!-- Fuentes: Outfit (moderna) y Fraunces (serif variable) -->
     <link href="https://googleapis.com" rel="stylesheet">
     <link rel="stylesheet" href="detalles.css">
 </head>
 <body>
 
-    <div class="bento-grid">
-        <!-- Bloque Principal: Imagen -->
-        <div class="item main-img">
-            <img src="arreglo7.jpeg" alt="Ramo Hello Kitty">
-            <div class="tag">Nuevo</div>
-        </div>
+    <div class="aurora-bg"></div>
 
-        <!-- Bloque: Título y Precio -->
-        <div class="item header">
-            <h1>Elegancia Real</h1>
-            <p class="price">$550.00</p>
-        </div>
+    <main class="master-container">
+        <!-- El producto parece flotar libremente -->
+        <div class="product-layout">
+            
+            <div class="visual-box">
+                <div class="main-image-wrapper">
+                    <img src="arreglo7.jpeg" alt="Ramo Premium" id="zoom-img">
+                </div>
+                <div class="floating-label">Edición Limitada</div>
+            </div>
 
-        <!-- Bloque: Detalle de Hello Kitty -->
-        <div class="item detail">
-            <span class="icon">🎀</span>
-            <h3>Edición Sanrio</h3>
-            <p>Detalle original de colección.</p>
-        </div>
+            <div class="text-box">
+                <header class="reveal">
+                    <span class="pre-title">Artesanía Floral</span>
+                    <h1 class="main-title">Elegancia <i>Real</i></h1>
+                </header>
 
-        <!-- Bloque: Envío -->
-        <div class="item shipping">
-            <span class="icon">🚀</span>
-            <h3>Envío Express</h3>
-            <p>Hoy mismo en tu puerta.</p>
-        </div>
+                <div class="description reveal delay-1">
+                    <p>Un diálogo entre la naturaleza y la cultura pop. Rosas de corte profundo fusionadas con la esencia de Sanrio.</p>
+                </div>
 
-        <!-- Bloque: Acción / Botón -->
-        <div class="item action" id="buy-btn">
-            <span>Pedir Ahora</span>
-            <div class="arrow">→</div>
+                <div class="price-action reveal delay-2">
+                    <div class="price-group">
+                        <small>Inversión</small>
+                        <span class="price-amount">$550.00</span>
+                    </div>
+                    
+                    <button class="magnetic-button" id="buy-action">
+                        <span class="btn-circle"></span>
+                        <span class="btn-text">Adquirir pieza</span>
+                    </button>
+                </div>
+
+                <footer class="extra-info reveal delay-3">
+                    <span>Disponible: Ciudad de México</span>
+                    <span>•</span>
+                    <span>Envío prioritario hoy</span>
+                </footer>
+            </div>
         </div>
-    </div>
+    </main>
 
     <script src="detalles.js"></script>
 </body>
