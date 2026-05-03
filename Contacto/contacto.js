@@ -3,6 +3,8 @@ document.getElementById('btnWhatsapp').addEventListener('click', function() {
     const nombre = document.getElementById('nombre').value;
     const correo = document.getElementById('correo').value;
     const mensaje = document.getElementById('mensaje').value;
+    
+    // Tu número de contacto actualizado
     const telefono = "525638166816"; 
 
     // 2. Validación
@@ -12,14 +14,12 @@ document.getElementById('btnWhatsapp').addEventListener('click', function() {
     }
 
     // 3. Formatear mensaje para WhatsApp
-    // %0A es un salto de línea en la URL
     const texto = `Hola Florería Alberto, mi nombre es *${nombre}*.%0A` +
                   `*Correo:* ${correo}%0A` +
                   `*Mensaje:* ${mensaje}`;
 
-    // 4. Construir URL correcta y abrir (AQUÍ ESTABA EL ERROR)
-    // Se agregó la / después de wa.me y el $ antes de {telefono}
-    const url = `https://wa.me{telefono}?text=${texto}`;
+    // 4. Construir URL correcta (Añadida la / y el $)
+    const url = `https://wa.me/${telefono}?text=${texto}`;
     
     window.open(url, '_blank');
 });
