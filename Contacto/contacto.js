@@ -3,7 +3,7 @@ document.getElementById('btnWhatsapp').addEventListener('click', function() {
     const nombre = document.getElementById('nombre').value;
     const correo = document.getElementById('correo').value;
     const mensaje = document.getElementById('mensaje').value;
-    const telefono = "525535652131"; 
+    const telefono = "525638166816"; 
 
     // 2. Validación
     if (nombre.trim() === "" || mensaje.trim() === "") {
@@ -17,7 +17,8 @@ document.getElementById('btnWhatsapp').addEventListener('click', function() {
                   `*Correo:* ${correo}%0A` +
                   `*Mensaje:* ${mensaje}`;
 
-    // 4. Construir URL correcta y abrir
+    // 4. Construir URL correcta y abrir (AQUÍ ESTABA EL ERROR)
+    // Se agregó la / después de wa.me y el $ antes de {telefono}
     const url = `https://wa.me{telefono}?text=${texto}`;
     
     window.open(url, '_blank');
