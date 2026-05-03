@@ -3,54 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalle del Producto - Magic Balloons</title>
+    <title>Detalle del Arreglo - Magic Balloons</title>
     <link rel="stylesheet" href="globo1.css">
 </head>
 <body>
 
-    <header>
-        <div class="logo">🎈 MagicBalloons</div>
-        <nav>
-            <a href="index.html">← Volver al catálogo</a>
-        </nav>
-    </header>
+    <div class="main-container">
+        <!-- Botón Volver -->
+        <a href="/globos/globos.html" class="btn-back">← Volver al catálogo</a>
 
-    <main class="container">
-        <section class="product-view">
-            <!-- Imagen del producto -->
-            <div class="product-image">
-                <img src="dglobo.jpeg"Bouquet Arcoíris">
+        <div class="product-card">
+            <!-- Galería de Imagen -->
+            <div class="image-section">
+                <div class="main-img">
+                    <img src="dglobo.jpeg" alt="Globo de Regalo">
+                </div>
             </div>
 
-            <!-- Información detallada -->
-            <div class="product-details">
-                <span class="category">Categoría: Cumpleaños</span>
-                <h1>Bouquet Arcoíris Premium</h1>
-                <p class="price">$35.00 USD</p>
+            <!-- Información del Producto -->
+            <div class="info-section">
+                <span class="badge-cat">Más Vendido</span>
+                <h1>Arreglo Burbuja "Sweet Love"</h1>
+                <p class="price">$42.00 <span>USD</span></p>
                 
-                <div class="description">
-                    <h3>Descripción</h3>
-                    <p>Hermoso arreglo de globos diseñado para iluminar cualquier celebración. Este bouquet combina texturas metálicas y látex de alta calidad con un acabado brillante.</p>
+                <p class="short-desc">
+                    Un detalle elegante y personalizado, perfecto para aniversarios o sorpresas especiales. Incluye helio de larga duración.
+                </p>
+
+                <div class="spec-grid">
+                    <div class="spec-item">
+                        <strong>🎈 Tamaño</strong>
+                        <span>Gigante (24")</span>
+                    </div>
+                    <div class="spec-item">
+                        <strong>🕒 Duración</strong>
+                        <span>72 Horas</span>
+                    </div>
+                    <div class="spec-item">
+                        <strong>🎨 Color</strong>
+                        <span>Personalizable</span>
+                    </div>
                 </div>
 
-                <div class="specs">
-                    <h3>Especificaciones técnicas:</h3>
-                    <ul>
-                        <li><strong>Duración:</strong> 3 a 5 días (con helio).</li>
-                        <li><strong>Altura aprox:</strong> 1.80 metros.</li>
-                        <li><strong>Incluye:</strong> 1 globo gigante, 5 globos de látex y contrapeso decorativo.</li>
-                        <li><strong>Personalización:</strong> Puedes elegir el color del vinil.</li>
-                    </ul>
-                </div>
-
-                <div class="actions">
-                    <a href="https://wa.me" class="btn-whatsapp">
-                        Consultar por WhatsApp
+                <div class="buy-box">
+                    <h3>¿Lo quieres personalizar?</h3>
+                    <p>Haz clic abajo para decirnos el nombre o frase que llevará tu globo.</p>
+                    <a href="https://wa.me" class="whatsapp-btn">
+                        Pedir por WhatsApp
                     </a>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </div>
 
 </body>
 </html>

@@ -4,33 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto | Florería Alberto</title>
-    <!-- He cambiado esto a style.css para mantener consistencia con el diseño premium -->
-    <link rel="stylesheet" href="contacto.css"> 
-    <style>
-        /* Botón flotante de WhatsApp */
-        .btn-flotante-wa {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: #25d366;
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 30px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            text-decoration: none;
-            z-index: 3000;
-            transition: 0.3s;
-        }
-        .btn-flotante-wa:hover {
-            transform: scale(1.1);
-            background-color: #128c7e;
-        }
-    </style>
+    <link rel="stylesheet" href="./contacto.css"> 
 </head>
 <body>
 
@@ -58,8 +32,6 @@
 
     <!-- CONTENIDO PRINCIPAL -->
     <main class="contenedor-contacto">
-        
-        <!-- COLUMNA DE INFORMACIÓN -->
         <div class="info-lateral">
             <div class="bloque-contacto">
                 <span>VISÍTANOS</span>
@@ -76,12 +48,22 @@
             <div class="bloque-contacto">
                 <span>SÍGUENOS</span>
                 <div class="links-sociales">
-                    <a href="#">IG</a> <a href="#">FB</a> <a href="#">WA</a>
+                    <!-- Instagram -->
+                    <a href="https://instagram.com" target="_blank" title="Síguenos en Instagram">
+                        <img src="https://flaticon.com" alt="IG" width="25">
+                    </a> 
+                    <!-- Facebook (Enlace principal que pediste) -->
+                    <a href="https://www.facebook.com/share/1FvNUytfws/" target="_blank" title="Visítanos en Facebook">
+                        <img src="https://flaticon.com" alt="FB" width="25">
+                    </a> 
+                    <!-- WhatsApp -->
+                    <a href="https://wa.me" target="_blank" title="Escríbenos por WhatsApp">
+                        <img src="https://flaticon.com" alt="WA" width="25">
+                    </a>
                 </div>
             </div>
         </div>
 
-        <!-- COLUMNA DEL FORMULARIO -->
         <div class="formulario-container">
             <form id="formContacto">
                 <div class="campo">
@@ -101,36 +83,13 @@
         </div>
     </main>
 
-    <!-- BOTÓN FLOTANTE (Opcional, pero recomendado) -->
-    <a href="https://wa.me" class="btn-flotante-wa" target="_blank">
+    <!-- BOTÓN FLOTANTE (Corregido con tu número) -->
+    <a href="https://wa.me" class="btn-flotante-wa" target="_blank" title="Chat directo">
         📲
     </a>
 
-    <!-- SCRIPT PARA ENVIAR DATOS A WHATSAPP -->
-    <script>
-        document.getElementById('btnWhatsapp').addEventListener('click', function() {
-            // 1. Obtenemos los valores de los campos por su ID
-            const nombre = document.getElementById('nombre').value;
-            const correo = document.getElementById('correo').value;
-            const mensaje = document.getElementById('mensaje').value;
-            const telefono = "525535652131"; // Tu número con código de país 52
-
-            // 2. Validación simple
-            if (nombre === "" || mensaje === "") {
-                alert("Por favor, ingresa al menos tu nombre y el mensaje.");
-                return;
-            }
-
-            // 3. Construcción del mensaje (con codificación para URL)
-            const texto = `Hola Florería Alberto, mi nombre es *${nombre}*. %0A` +
-                          `*Correo:* ${correo} %0A` +
-                          `*Mensaje:* ${mensaje}`;
-
-            // 4. Crear el enlace y abrir//
-           const url = "https://wa.me" + telefono + "?text=" + texto;
-            window.open(url, '_blank');
-        });
-    </script>
+    <!-- VINCULACIÓN DE JAVASCRIPT -->
+    <script src="contacto.js"></script>
 
 </body>
 </html>

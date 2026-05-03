@@ -1,106 +1,131 @@
 :root {
-    --primary: #ff7eb3;
-    --secondary: #ff758c;
-    --glass: rgba(255, 255, 255, 0.7);
+    --primary: #ff6bad;
+    --bg-color: #fdf2f7;
+    --text: #2d3436;
 }
 
 body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-color);
     margin: 0;
-    font-family: 'Inter', sans-serif;
-    background: #fdfbfb;
-    background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
-    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow-x: hidden;
+    min-height: 100vh;
 }
 
-/* Fondo decorativo con movimiento */
-.blob-bg {
-    position: fixed;
-    width: 600px; height: 600px;
-    background: radial-gradient(circle, #ff7eb3 0%, #7afcff 100%);
-    filter: blur(80px);
-    opacity: 0.2;
-    z-index: -1;
-    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
-    animation: blobMorph 10s infinite alternate;
+.main-container {
+    width: 90%;
+    max-width: 1000px;
+    padding: 20px 0;
 }
 
-@keyframes blobMorph {
-    from { border-radius: 40% 60% 70% 30%; transform: translate(-10%, -10%) rotate(0deg); }
-    to { border-radius: 60% 40% 30% 70%; transform: translate(10%, 10%) rotate(20deg); }
+.btn-back {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--primary);
+    font-weight: bold;
+    margin-bottom: 20px;
 }
 
-.wrapper { width: 95%; max-width: 1200px; padding: 40px 0; }
-
-.nav-back { text-decoration: none; color: #888; font-weight: 500; margin-bottom: 20px; display: inline-block; }
-
-/* Escenario principal */
-.glass-stage {
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 60px;
-    background: var(--glass);
-    backdrop-filter: blur(20px);
-    border-radius: 50px;
-    padding: 60px;
-    border: 1px solid rgba(255,255,255,0.8);
-    box-shadow: 0 40px 100px rgba(0,0,0,0.05);
-}
-
-/* Máscara de Imagen Orgánica */
-.image-mask {
-    width: 100%; height: 550px;
-    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+.product-card {
+    background: white;
+    border-radius: 30px;
     overflow: hidden;
-    position: relative;
-    box-shadow: 0 20px 40px rgba(255, 126, 179, 0.3);
+    display: flex;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
 }
 
-.image-mask img { width: 100%; height: 100%; object-fit: cover; }
-
-.floating-price {
-    position: absolute;
-    bottom: 40px; right: -20px;
-    background: #000; color: #fff;
-    padding: 20px 30px; border-radius: 20px;
-    font-size: 2.5rem; font-weight: 800;
+/* Lado de la imagen */
+.image-section {
+    flex: 1;
+    background: #fff;
+    padding: 20px;
 }
 
-.floating-price span { font-size: 1rem; vertical-align: top; }
-
-/* Texto */
-.tag-new { color: var(--secondary); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; font-size: 12px; }
-h1 { font-size: 3.5rem; line-height: 1; margin: 15px 0; color: #1d1d1f; font-weight: 300; }
-h1 strong { font-weight: 800; display: block; background: linear-gradient(to right, #ff758c, #ff7eb3); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-
-.description { font-size: 1.1rem; color: #666; line-height: 1.8; margin-bottom: 40px; }
-
-/* Fila de beneficios */
-.benefits-row { display: flex; gap: 30px; margin-bottom: 50px; }
-.benefit { display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 600; }
-.circle-icon { width: 40px; height: 40px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
-
-/* Botón con efecto de luz */
-.footer-actions { position: relative; }
-.btn-whatsapp {
-    position: relative;
-    display: flex; align-items: center; justify-content: center;
-    background: #111; color: #fff;
-    text-decoration: none; padding: 25px 40px;
-    border-radius: 25px; font-weight: bold; font-size: 1.2rem;
-    overflow: hidden; transition: 0.3s;
+.main-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
 }
 
-.btn-whatsapp:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.2); }
+/* Lado de la información */
+.info-section {
+    flex: 1;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+}
 
-.shipping-info { margin-top: 15px; font-size: 13px; color: #999; text-align: center; }
+.badge-cat {
+    background: #fff0f6;
+    color: var(--primary);
+    padding: 5px 15px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: bold;
+    align-self: flex-start;
+}
 
-/* Mobile */
-@media (max-width: 1000px) {
-    .glass-stage { grid-template-columns: 1fr; padding: 30px; border-radius: 30px; }
-    h1 { font-size: 2.5rem; }
-    .image-mask { height: 400px; }
+h1 { font-size: 2rem; margin: 15px 0; color: var(--text); }
+
+.price {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin: 10px 0;
+}
+
+.price span { font-size: 1rem; color: #aaa; }
+
+.short-desc { color: #636e72; line-height: 1.6; margin-bottom: 30px; }
+
+/* Grid de especificaciones */
+.spec-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 40px;
+}
+
+.spec-item {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.spec-item strong { display: block; font-size: 13px; color: #b2bec3; }
+.spec-item span { font-size: 14px; font-weight: bold; color: var(--text); }
+
+/* Caja de compra */
+.buy-box {
+    background: #fdf2f7;
+    padding: 25px;
+    border-radius: 20px;
+    border: 1px dashed var(--primary);
+}
+
+.buy-box h3 { margin: 0 0 10px 0; font-size: 16px; }
+.buy-box p { font-size: 14px; color: #636e72; margin-bottom: 20px; }
+
+.whatsapp-btn {
+    display: block;
+    background: #25D366;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    padding: 15px;
+    border-radius: 15px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.whatsapp-btn:hover { background: #1ebe57; transform: scale(1.02); }
+
+/* Móvil */
+@media (max-width: 800px) {
+    .product-card { flex-direction: column; }
+    .info-section { padding: 30px; }
 }

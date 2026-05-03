@@ -3,49 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diseño Exclusivo | Magic Balloons</title>
+    <title>Detalle del Arreglo - Magic Balloons</title>
     <link rel="stylesheet" href="dglobo.css">
 </head>
 <body>
 
-    <div class="background-glow"></div>
+    <div class="main-container">
+        <!-- Botón Volver -->
+        <a href="/globos/globos.html" class="btn-back">← Volver al catálogo</a>
 
-    <main class="bento-container">
-        <!-- Lado Izquierdo: Imagen Hero -->
-        <div class="bento-item main-image">
-            <img src="dglobo.jpeg" alt="Globo">
-            <div class="overlay-tag">Edición Especial</div>
-        </div>
-
-        <!-- Lado Derecho: Info y Cuadrícula -->
-        <div class="bento-info">
-            <div class="bento-item header-card">
-                <h1>Aura de Oro</h1>
-                <p class="price">$49.00</p>
-            </div>
-
-            <div class="small-cards">
-                <div class="bento-item mini-card">
-                    <span>🎈</span>
-                    <p>Helio Premium</p>
-                </div>
-                <div class="bento-item mini-card">
-                    <span>⏳</span>
-                    <p>7-10 Días</p>
+        <div class="product-card">
+            <!-- Galería de Imagen -->
+            <div class="image-section">
+                <div class="main-img">
+                    <img src="dglobo.jpeg" alt="Globo de Regalo">
                 </div>
             </div>
 
-            <div class="bento-item description-card">
-                <h3>Detalles del Diseño</h3>
-                <p>Arreglo artesanal con globos de doble capa y acabado espejo. Incluye una base de micro-globos y cinta de seda italiana.</p>
-            </div>
+            <!-- Información del Producto -->
+            <div class="info-section">
+                <span class="badge-cat">Más Vendido</span>
+                <h1>Arreglo Burbuja "Sweet Love"</h1>
+                <p class="price">$42.00 <span>USD</span></p>
+                
+                <p class="short-desc">
+                    Un detalle elegante y personalizado, perfecto para aniversarios o sorpresas especiales. Incluye helio de larga duración.
+                </p>
 
-            <a href="#" class="bento-item cta-card">
-                <span>Pedir por WhatsApp</span>
-                <div class="arrow">→</div>
-            </a>
+                <div class="spec-grid">
+                    <div class="spec-item">
+                        <strong>🎈 Tamaño</strong>
+                        <span>Gigante (24")</span>
+                    </div>
+                    <div class="spec-item">
+                        <strong>🕒 Duración</strong>
+                        <span>72 Horas</span>
+                    </div>
+                    <div class="spec-item">
+                        <strong>🎨 Color</strong>
+                        <span>Personalizable</span>
+                    </div>
+                </div>
+
+                <div class="buy-box">
+                    <h3>¿Lo quieres personalizar?</h3>
+                    <p>Haz clic abajo para decirnos el nombre o frase que llevará tu globo.</p>
+                    <a href="https://wa.me" class="whatsapp-btn">
+                        Pedir por WhatsApp
+                    </a>
+                </div>
+            </div>
         </div>
-    </main>
+    </div>
 
 </body>
 </html>
