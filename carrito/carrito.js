@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-// NUEVO: Ahora la función recibe también la ruta de la imagen
+// Función para registrar productos en la lista junto con su imagen
 function agregarAlCarrito(nombre, precio, imagenUrl) {
     const producto = {
         nombre: nombre,
@@ -60,7 +60,7 @@ function actualizarInterfazCarrito() {
         const itemDiv = document.createElement("div");
         itemDiv.classList.add("item-carrito");
         
-        // OPCIONAL: Mostramos la foto también dentro del propio carrito flotante
+        // Muestra la miniatura de la foto dentro del carrito flotante
         itemDiv.innerHTML = `
             <div style="display: flex; gap: 10px; align-items: center;">
                 <img src="${item.imagen}" style="width: 50px; height: 50px; object-fit: cover; border-radius: 5px;">
@@ -78,6 +78,7 @@ function actualizarInterfazCarrito() {
     contenedorTotal.innerText = `$${totalAcumulado.toFixed(2)} USD`;
 }
 
+// Genera la URL dinámica corregida para evitar el error 404 en GitHub Pages
 function enviarPedidoWhatsApp() {
     if (carrito.length === 0) return;
 
@@ -90,8 +91,11 @@ function enviarPedidoWhatsApp() {
         total += subtotal;
         
         mensaje += `🛍️ *${item.cantidad}x ${item.nombre}* - $${subtotal.toFixed(2)} USD\n`;
-        // NUEVO: Agrega la URL de la imagen para que WhatsApp genere la vista previa
-        mensaje += `🖼️ Ver Foto: ${window.location.origin}/${item.imagen}\n\n`;
+        
+        // SOLUCIÓN AL 404: Obtiene la ruta de la carpeta actual (ej: https://samiglz007.github.io/referencias/detallesramo1/)
+        let urlLimpia = window.location.href.substring(0, window.location.href.lastIndexOf("/") + 1);
+        
+        mensaje += `🖼️ Ver Foto: ${urlLimpia}${item.imagen}\n\n`;
     });
     
     mensaje += `💰 *Total estimado:* $${total.toFixed(2)} USD\n\n`;
