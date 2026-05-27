@@ -5,14 +5,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const cerrarCarritoBtn = document.getElementById("btn-cerrar-carrito");
     const botonWhatsApp = document.getElementById("btn-enviar-wa");
 
-    // Evento para cerrar el menú lateral al presionar la 'X'
     if (cerrarCarritoBtn) {
         cerrarCarritoBtn.addEventListener("click", () => {
             carritoSidebar.classList.remove("activo");
         });
     }
 
-    // Evento para activar la compra hacia WhatsApp
     if (botonWhatsApp) {
         botonWhatsApp.addEventListener("click", (e) => {
             e.preventDefault();
@@ -21,15 +19,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-// Función para registrar productos en la lista
-function agregarAlCarrito(nombre, precio) {
+// NUEVO: Ahora la función recibe también la ruta de la imagen
+function agregarAlCarrito(nombre, precio, imagenUrl) {
     const producto = {
         nombre: nombre,
         precio: parseFloat(precio),
+        imagen: imagenUrl, // Guardamos la ruta de la foto
         cantidad: 1
     };
 
-    // Validar si la pieza ya fue añadida previamente para incrementar su contador
     const existente = carrito.find(item => item.nombre === producto.nombre);
     
     if (existente) {
@@ -39,12 +37,9 @@ function agregarAlCarrito(nombre, precio) {
     }
 
     actualizarInterfazCarrito();
-    
-    // Desplegar visualmente el panel lateral
     document.getElementById("carrito-sidebar").classList.add("activo");
 }
 
-// Dibuja los artículos en la interfaz dinámicamente
 function actualizarInterfazCarrito() {
     const contenedorItems = document.getElementById("carrito-items");
     const contenedorTotal = document.getElementById("carrito-total-precio");
@@ -64,9 +59,14 @@ function actualizarInterfazCarrito() {
 
         const itemDiv = document.createElement("div");
         itemDiv.classList.add("item-carrito");
+        
+        // OPCIONAL: Mostramos la foto también dentro del propio carrito flotante
         itemDiv.innerHTML = `
-            <div class="item-detalles">
-                <h4>${item.nombre} (x${item.cantidad})</h4>
+            <div style="display: flex; gap: 10px; align-items: center;">
+                <img src="${item.imagen}" style="width: 50px; height: 50px; object-fit: cover; border-radius: 5px;">
+                <div class="item-detalles">
+                    <h4>${item.nombre} (x${item.cantidad})</h4>
+                </div>
             </div>
             <div class="item-precio-lado">
                 <span>$${subtotal.toFixed(2)}</span>
@@ -78,23 +78,23 @@ function actualizarInterfazCarrito() {
     contenedorTotal.innerText = `$${totalAcumulado.toFixed(2)} USD`;
 }
 
-// Genera la URL dinámica encriptada para el chat
 function enviarPedidoWhatsApp() {
     if (carrito.length === 0) return;
 
-    // Número de teléfono de Florería Alberto (configurado con tu número de la cabecera)
     let telefono = "525638166816"; 
-    
     let mensaje = "¡Hola! Me interesa encargar las siguientes piezas desde el catálogo:\n\n";
     let total = 0;
     
     carrito.forEach(item => {
         let subtotal = item.precio * item.cantidad;
         total += subtotal;
+        
         mensaje += `🛍️ *${item.cantidad}x ${item.nombre}* - $${subtotal.toFixed(2)} USD\n`;
+        // NUEVO: Agrega la URL de la imagen para que WhatsApp genere la vista previa
+        mensaje += `🖼️ Ver Foto: ${window.location.origin}/${item.imagen}\n\n`;
     });
     
-    mensaje += `\n💰 *Total estimado:* $${total.toFixed(2)} USD\n\n`;
+    mensaje += `💰 *Total estimado:* $${total.toFixed(2)} USD\n\n`;
     mensaje += "Por favor, confírmame la disponibilidad para agendar mi pedido. 😊";
 
     const url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
