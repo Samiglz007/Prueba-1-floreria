@@ -19,12 +19,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-// Función para registrar productos en la lista junto con su imagen
+// Agrega un producto al carrito
 function agregarAlCarrito(nombre, precio, imagenUrl) {
     const producto = {
         nombre: nombre,
         precio: parseFloat(precio),
-        imagen: imagenUrl, // Guardamos la ruta de la foto
+        imagen: imagenUrl,
         cantidad: 1
     };
 
@@ -40,6 +40,29 @@ function agregarAlCarrito(nombre, precio, imagenUrl) {
     document.getElementById("carrito-sidebar").classList.add("activo");
 }
 
+// Modifica la cantidad de un artículo mediante los botones + y -
+function cambiarCantidad(nombre, cambio) {
+    const producto = carrito.find(item => item.nombre === nombre);
+    
+    if (producto) {
+        producto.cantidad += cambio;
+        
+        // Si la cantidad llega a 0 o menos, eliminamos el producto por completo
+        if (producto.cantidad <= 0) {
+            eliminarProducto(nombre);
+            return;
+        }
+    }
+    actualizarInterfazCarrito();
+}
+
+// Elimina directamente un artículo de la lista
+function eliminarProducto(nombre) {
+    carrito = carrito.filter(item => item.nombre !== nombre);
+    actualizarInterfazCarrito();
+}
+
+// Dibuja la lista actualizada con selectores de cantidad y precio dinámico
 function actualizarInterfazCarrito() {
     const contenedorItems = document.getElementById("carrito-items");
     const contenedorTotal = document.getElementById("carrito-total-precio");
@@ -60,16 +83,24 @@ function actualizarInterfazCarrito() {
         const itemDiv = document.createElement("div");
         itemDiv.classList.add("item-carrito");
         
-        // Muestra la miniatura de la foto dentro del carrito flotante
+        // Estructura visual ordenada con botones responsivos para sumar y restar
         itemDiv.innerHTML = `
-            <div style="display: flex; gap: 10px; align-items: center;">
-                <img src="${item.imagen}" style="width: 50px; height: 50px; object-fit: cover; border-radius: 5px;">
-                <div class="item-detalles">
-                    <h4>${item.nombre} (x${item.cantidad})</h4>
+            <div style="display: flex; gap: 15px; align-items: center; width: 100%; margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 15px;">
+                <img src="${item.imagen}" style="width: 55px; height: 55px; object-fit: cover; border-radius: 8px; border: 1px solid #f0f0f0;">
+                
+                <div style="flex-grow: 1; display: flex; flex-direction: column; gap: 4px;">
+                    <h4 style="margin: 0; font-size: 14px; color: #333; font-weight: 600; line-height: 1.3;">${item.nombre}</h4>
+                    
+                    <div style="display: flex; align-items: center; gap: 8px; margin-top: 2px;">
+                        <button onclick="cambiarCantidad('${item.nombre}', -1)" style="background: #f5f5f5; border: none; width: 26px; height: 26px; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 14px; display: flex; align-items: center; justify-content: center; color: #555; transition: background 0.2s;">-</button>
+                        <span style="font-weight: bold; font-size: 14px; min-width: 20px; text-align: center; color: #333;">${item.cantidad}</span>
+                        <button onclick="cambiarCantidad('${item.nombre}', 1)" style="background: #f5f5f5; border: none; width: 26px; height: 26px; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 14px; display: flex; align-items: center; justify-content: center; color: #555; transition: background 0.2s;">+</button>
+                    </div>
                 </div>
-            </div>
-            <div class="item-precio-lado">
-                <span>$${subtotal.toFixed(2)}</span>
+                
+                <div style="text-align: right; font-weight: bold; color: #333; font-size: 14px; min-width: 75px;">
+                    <span>$${subtotal.toFixed(2)}</span>
+                </div>
             </div>
         `;
         contenedorItems.appendChild(itemDiv);
@@ -78,7 +109,7 @@ function actualizarInterfazCarrito() {
     contenedorTotal.innerText = `$${totalAcumulado.toFixed(2)} USD`;
 }
 
-// Genera la URL dinámica corregida para evitar el error 404 en GitHub Pages
+// Envía el resumen exacto con las cantidades finales y las imágenes a WhatsApp
 function enviarPedidoWhatsApp() {
     if (carrito.length === 0) return;
 
@@ -92,9 +123,8 @@ function enviarPedidoWhatsApp() {
         
         mensaje += `🛍️ *${item.cantidad}x ${item.nombre}* - $${subtotal.toFixed(2)} USD\n`;
         
-        // SOLUCIÓN AL 404: Obtiene la ruta de la carpeta actual (ej: https://samiglz007.github.io/referencias/detallesramo1/)
+        // Obtiene la ruta limpia del servidor de GitHub Pages para evitar errores 404
         let urlLimpia = window.location.href.substring(0, window.location.href.lastIndexOf("/") + 1);
-        
         mensaje += `🖼️ Ver Foto: ${urlLimpia}${item.imagen}\n\n`;
     });
     
