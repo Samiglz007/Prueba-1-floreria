@@ -1,0 +1,125 @@
+/* ========================================== */
+/* ESTILOS GENERALES DEL PANEL DEL CARRITO  */
+/* ========================================== */
+.carrito-sidebar {
+    position: fixed !important;
+    top: 0 !important;
+    right: -420px; /* Escondido por defecto a la derecha */
+    width: 380px;
+    height: 100vh !important;
+    background-color: #ffffff !important;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.15);
+    transition: right 0.3s ease-in-out !important;
+    z-index: 99999 !important; /* Por encima de cualquier elemento visual */
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+}
+
+/* Clase que activa la animación para deslizar el panel */
+.carrito-sidebar.activo {
+    right: 0 !important;
+}
+
+/* Encabezado */
+.carrito-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #f5f5f5;
+    padding-bottom: 15px;
+}
+
+.carrito-header h3 {
+    margin: 0;
+    font-size: 20px;
+    color: #333;
+}
+
+.btn-cerrar-carrito {
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #ff69b4;
+    transition: transform 0.2s;
+}
+
+.btn-cerrar-carrito:hover {
+    transform: scale(1.1);
+}
+
+/* Cuerpo con Scroll para los productos */
+.carrito-items {
+    flex-grow: 1;
+    overflow-y: auto;
+    margin-top: 20px;
+}
+
+.carrito-vacio {
+    text-align: center;
+    color: #999;
+    margin-top: 40px;
+    font-style: italic;
+}
+
+/* Tarjeta interna de producto añadido */
+.item-carrito {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.item-detalles h4 {
+    margin: 0 0 5px 0;
+    font-size: 15px;
+    color: #444;
+}
+
+.item-detalles p {
+    margin: 0;
+    font-size: 13px;
+    color: #ff69b4;
+}
+
+.item-precio-lado {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Footer y Botón de WhatsApp */
+.carrito-footer {
+    border-top: 2px solid #f5f5f5;
+    padding-top: 20px;
+}
+
+.carrito-total {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: 19px;
+    margin-bottom: 20px;
+}
+
+.btn-enviar-wa {
+    display: block;
+    width: 100%;
+    background-color: #25D366;
+    color: #ffffff;
+    text-align: center;
+    padding: 14px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: background-color 0.2s;
+}
+
+.btn-enviar-wa:hover {
+    background-color: #128C7E;
+}

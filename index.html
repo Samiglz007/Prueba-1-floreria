@@ -9,24 +9,22 @@
 </head>
 <body>
 
-    <!-- BARRA SUPERIOR -->
     <header class="barra-superior">
         <nav class="contenedor-nav">
             <div class="logo">🌸 Florería Alberto</div>
             <ul class="menu">
                 <li><a href="./index.html" class="active">Inicio</a></li>
-                <!-- ENLACE ACTUALIZADO -->
                 <li><a href="Productos/productos.html">Productos</a></li>
                 <li><a href="Servicios/servicios.html">Servicios</a></li>
                 <li><a href="Contacto/contacto.html">Contacto</a></li>
             </ul>
-            <div class="telefono-nav">
+            <div class="telefono-nav" style="display: flex; align-items: center; gap: 15px;">
                 <a href="tel:5535652131">📞 55 3565 2131</a>
+                <button id="btn-ver-carrito" style="background-color: #ff69b4; color: white; border: none; padding: 8px 12px; border-radius: 5px; cursor: pointer; font-weight: bold;">🛒 Ver Carrito</button>
             </div>
         </nav>
     </header>
 
-    <!-- SECCIÓN HERO -->
     <main class="hero-section">
         <div class="hero-overlay">
             <div class="hero-content">
@@ -40,7 +38,6 @@
         </div>
     </main>
 
-    <!-- SECCIÓN INFO BLANCA (Sigue igual) -->
     <section class="info-blanca">
         <div class="contenedor-texto">
             <span class="icono-rosa">🌸</span>
@@ -49,18 +46,15 @@
         </div>
     </section>
 
-    <!-- SECCIÓN CTA FINAL -->
     <section class="cta-final">
         <h2>¿Listo para alegrar el día de alguien?</h2>
-        <p>Explora nuestra colección de impresionantes arreglos florales o contáctanos para crear un diseño personalizado</p>
+        <p>Explora nuestra colección de impresionantes arreglos florales o contáctanos para crear un design personalizado</p>
         <div class="cta-btns">
-            <!-- BOTÓN ACTUALIZADO -->
             <a href="Productos/productos.html" class="btn-rosa-relleno">Ver productos</a>
             <a href="Contacto/contacto.html" class="btn-blanco-borde">Contáctanos</a>
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer class="footer-principal">
         <div class="footer-grid">
             <div class="footer-col">
@@ -71,7 +65,6 @@
                 <h4>Enlaces rápidos</h4>
                 <ul>
                     <li><a href="./index.html">Inicio</a></li>
-                    <!-- ENLACE ACTUALIZADO EN FOOTER -->
                     <li><a href="Productos/productos.html">Productos</a></li>
                     <li><a href="Servicios/servicios.html">Servicios</a></li>
                     <li><a href="Contacto/contacto.html">Contacto</a></li>
@@ -91,6 +84,29 @@
             <p>© 2026 Florería Alberto. Todos los derechos reservados.</p>
         </div>
     </footer>
+
+    <div id="carrito-sidebar" class="carrito-sidebar">
+        <div class="carrito-header">
+            <h3>🛒 Mi Carrito</h3>
+            <button id="btn-cerrar-carrito" class="btn-cerrar-carrito">&times;</button>
+        </div>
+
+        <div id="carrito-items" class="carrito-items">
+            <p class="carrito-vacio">Tu carrito está vacío. ¡Agrega hermosos globos!</p>
+        </div>
+
+        <div class="carrito-footer">
+            <div class="carrito-total">
+                <span>Total:</span>
+                <span id="carrito-total-precio">$0.00 USD</span>
+            </div>
+            <a href="#" id="btn-enviar-wa" class="btn-enviar-wa">
+                Confirmar Pedido por WhatsApp
+            </a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 
 </body>
 </html>
