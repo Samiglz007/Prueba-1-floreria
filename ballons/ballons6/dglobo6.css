@@ -129,3 +129,23 @@ h1 { font-size: 2rem; margin: 15px 0; color: var(--text); }
     .product-card { flex-direction: column; }
     .info-section { padding: 30px; }
 }
+
+.btn-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #25D366;
+    color: #ffffff;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 15px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: background-color 0.2s ease;
+}
+
+.btn-whatsapp:hover {
+    background-color: #128C7E;
+}

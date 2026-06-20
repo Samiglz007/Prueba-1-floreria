@@ -8,15 +8,13 @@ body {
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     background-color: var(--bg-color);
     margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     min-height: 100vh;
 }
 
 .main-container {
     width: 90%;
     max-width: 1000px;
+    margin: 0 auto;
     padding: 20px 0;
 }
 
@@ -43,11 +41,17 @@ body {
     padding: 20px;
 }
 
+.main-img {
+    width: 100%;
+    height: 100%;
+}
+
 .main-img img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 20px;
+    display: block;
 }
 
 /* Lado de la información */
@@ -56,6 +60,7 @@ body {
     padding: 50px;
     display: flex;
     flex-direction: column;
+    box-sizing: border-box;
 }
 
 .badge-cat {
@@ -68,18 +73,17 @@ body {
     align-self: flex-start;
 }
 
-h1 { font-size: 2rem; margin: 15px 0; color: var(--text); }
-
-.price {
-    font-size: 2.5rem;
-    font-weight: 800;
-    color: var(--primary);
-    margin: 10px 0;
+h1 {
+    font-size: 2rem;
+    margin: 15px 0;
+    color: var(--text);
 }
 
-.price span { font-size: 1rem; color: #aaa; }
-
-.short-desc { color: #636e72; line-height: 1.6; margin-bottom: 30px; }
+.short-desc {
+    color: #636e72;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
 
 /* Grid de especificaciones */
 .spec-grid {
@@ -96,8 +100,17 @@ h1 { font-size: 2rem; margin: 15px 0; color: var(--text); }
     text-align: center;
 }
 
-.spec-item strong { display: block; font-size: 13px; color: #b2bec3; }
-.spec-item span { font-size: 14px; font-weight: bold; color: var(--text); }
+.spec-item strong {
+    display: block;
+    font-size: 13px;
+    color: #b2bec3;
+}
+
+.spec-item span {
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--text);
+}
 
 /* Caja de compra */
 .buy-box {
@@ -107,25 +120,52 @@ h1 { font-size: 2rem; margin: 15px 0; color: var(--text); }
     border: 1px dashed var(--primary);
 }
 
-.buy-box h3 { margin: 0 0 10px 0; font-size: 16px; }
-.buy-box p { font-size: 14px; color: #636e72; margin-bottom: 20px; }
-
-.whatsapp-btn {
-    display: block;
-    background: #25D366;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    padding: 15px;
-    border-radius: 15px;
-    font-weight: bold;
-    transition: 0.3s;
+.buy-box h3 {
+    margin: 0 0 10px 0;
+    font-size: 16px;
 }
 
-.whatsapp-btn:hover { background: #1ebe57; transform: scale(1.02); }
+.buy-box p {
+    font-size: 14px;
+    color: #636e72;
+    margin-bottom: 20px;
+}
 
-/* Móvil */
+/* Botón WhatsApp */
+.btn-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #25D366;
+    color: #ffffff;
+    padding: 14px 24px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 15px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-whatsapp:hover {
+    background-color: #128C7E;
+    transform: scale(1.02);
+}
+
+/* Responsive */
 @media (max-width: 800px) {
-    .product-card { flex-direction: column; }
-    .info-section { padding: 30px; }
+    .product-card {
+        flex-direction: column;
+    }
+
+    .info-section {
+        padding: 30px;
+    }
+
+    .spec-grid {
+        grid-template-columns: 1fr;
+    }
 }

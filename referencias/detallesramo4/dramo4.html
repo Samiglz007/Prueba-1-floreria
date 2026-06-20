@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Elegancia Real | Aurora Edition</title>
-    <!-- Fuentes: Outfit (moderna) y Fraunces (serif variable) -->
     <link href="https://googleapis.com" rel="stylesheet">
     <link rel="stylesheet" href="detalles.css">
+    
+    <link rel="stylesheet" href="../../carrito/carrito.css">
 </head>
 <body>
 
     <div class="aurora-bg"></div>
 
     <main class="master-container">
-        <!-- El producto parece flotar libremente -->
         <div class="product-layout">
             
             <div class="visual-box">
@@ -37,7 +37,7 @@
                     <div class="price-group">
                     </div>
                     
-                    <button class="magnetic-button" id="buy-action">
+                    <button class="magnetic-button" id="buy-action" onclick="agregarAlCarrito('Artesanía Floral - Elegancia Real', 45.00, 'arreglo4.jpeg')">
                         <span class="btn-circle"></span>
                         <span class="btn-text">Adquirir pieza</span>
                     </button>
@@ -50,6 +50,27 @@
         </div>
     </main>
 
+    <div id="carrito-sidebar" class="carrito-sidebar">
+        <div class="carrito-header">
+            <h3>🛒 Mi Carrito</h3>
+            <button id="btn-cerrar-carrito" class="btn-cerrar-carrito">&times;</button>
+        </div>
+        <div id="carrito-items" class="carrito-items">
+            <p class="carrito-vacio">Tu carrito está vacío.</p>
+        </div>
+        <div class="carrito-footer">
+            <div class="carrito-total">
+                <span>Total:</span>
+                <span id="carrito-total-precio">$0.00 USD</span>
+            </div>
+            <a href="#" id="btn-enviar-wa" class="btn-enviar-wa">
+                Confirmar Pedido por WhatsApp
+            </a>
+        </div>
+    </div>
+
     <script src="detalles.js"></script>
+    
+    <script src="../../carrito/carrito.js"></script>
 </body>
 </html>
