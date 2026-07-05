@@ -5,7 +5,7 @@ document.getElementById('btnWhatsapp').addEventListener('click', function() {
     const mensaje = document.getElementById('mensaje').value;
     
     // Tu número de contacto actualizado
-    const telefono = "525638166816"; 
+    const telefono = "525535652131"; 
 
     // 2. Validación
     if (nombre.trim() === "" || mensaje.trim() === "") {

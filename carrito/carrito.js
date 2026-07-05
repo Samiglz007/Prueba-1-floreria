@@ -124,7 +124,7 @@ function actualizarInterfazCarrito() {
 function enviarPedidoWhatsApp() {
     if (carrito.length === 0) return;
 
-    let telefono = "525638166816";
+    let telefono = "525535652131"; // Número de WhatsApp actualizado
     let mensaje = "¡Hola! Me interesa encargar las siguientes piezas desde el catálogo:\n\n";
 
     carrito.forEach(item => {
