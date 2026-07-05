@@ -29,20 +29,10 @@ function construirURLImagen(imagenUrl) {
         return imagenUrl;
     }
 
-    // Obtiene la ruta actual después del dominio
-    let rutaActual = window.location.pathname;
-
-    // Quita el nombre del archivo html y deja solo la carpeta
-    rutaActual = rutaActual.substring(0, rutaActual.lastIndexOf("/") + 1);
-
-    // Si estás en local (/Prueba-1-floreria/... o /referencias/...)
-    // armamos la ruta limpia relativa al proyecto
-    if (rutaActual.startsWith("/")) {
-        rutaActual = rutaActual.substring(1);
-    }
-
-    return GITHUB_BASE + rutaActual + imagenUrl;
+    // Retorna la URL limpia uniendo la base de GitHub con la ruta del botón
+    return GITHUB_BASE + imagenUrl;
 }
+
 
 // Agrega un producto al carrito
 function agregarAlCarrito(nombre, precio, imagenUrl) {
